@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "lessons": [
+    {
+      "id": "W01-AS-SG-MON",
+      "version": 2,
+      "title": "Существительные на -as",
+      "subtitle": "Единственное число · семь падежей",
+      "week": 1,
+      "day": "Понедельник",
+      "minutes": 60,
+      "words": {
+        "namas": "дом",
+        "stalas": "стол",
+        "parkas": "парк",
+        "tiltas": "мост",
+        "miestas": "город",
+        "draugas": "друг",
+        "darbas": "работа",
+        "sodas": "сад"
+      },
+      "cases": [
+        {
+          "code": "V.",
+          "lt": "Vardininkas",
+          "ru": "Именительный",
+          "question": "kas?",
+          "ending": "-as",
+          "example": "namas"
+        },
+        {
+          "code": "K.",
+          "lt": "Kilmininkas",
+          "ru": "Родительный",
+          "question": "ko?",
+          "ending": "-o",
+          "example": "namo"
+        },
+        {
+          "code": "N.",
+          "lt": "Naudininkas",
+          "ru": "Дательный",
+          "question": "kam?",
+          "ending": "-ui",
+          "example": "namui"
+        },
+        {
+          "code": "G.",
+          "lt": "Galininkas",
+          "ru": "Винительный",
+          "question": "ką?",
+          "ending": "-ą",
+          "example": "namą"
+        },
+        {
+          "code": "Įn.",
+          "lt": "Įnagininkas",
+          "ru": "Творительный",
+          "question": "kuo?",
+          "ending": "-u",
+          "example": "namu"
+        },
+        {
+          "code": "Vt.",
+          "lt": "Vietininkas",
+          "ru": "Местный",
+          "question": "kur?",
+          "ending": "-e",
+          "example": "name"
+        },
+        {
+          "code": "Š.",
+          "lt": "Šauksmininkas",
+          "ru": "Звательный",
+          "question": "обращение",
+          "ending": "-e",
+          "example": "name"
+        }
+      ],
+      "baseline": [
+        {
+          "id": "0.1",
+          "word": "namas",
+          "case": "G."
+        },
+        {
+          "id": "0.2",
+          "word": "stalas",
+          "case": "K."
+        },
+        {
+          "id": "0.3",
+          "word": "parkas",
+          "case": "Vt."
+        },
+        {
+          "id": "0.4",
+          "word": "draugas",
+          "case": "N."
+        },
+        {
+          "id": "0.5",
+          "word": "draugas",
+          "case": "Š."
+        },
+        {
+          "id": "0.6",
+          "word": "tiltas",
+          "case": "Įn."
+        },
+        {
+          "id": "0.7",
+          "word": "miestas",
+          "case": "V."
+        }
+      ],
+      "tableWords": [
+        "stalas",
+        "parkas",
+        "tiltas",
+        "miestas"
+      ],
+      "forms": [
+        {
+          "id": "2.1",
+          "word": "sodas",
+          "case": "K."
+        },
+        {
+          "id": "2.2",
+          "word": "darbas",
+          "case": "G."
+        },
+        {
+          "id": "2.3",
+          "word": "namas",
+          "case": "N."
+        },
+        {
+          "id": "2.4",
+          "word": "tiltas",
+          "case": "Vt."
+        },
+        {
+          "id": "2.5",
+          "word": "draugas",
+          "case": "Įn."
+        },
+        {
+          "id": "2.6",
+          "word": "parkas",
+          "case": "G."
+        },
+        {
+          "id": "2.7",
+          "word": "miestas",
+          "case": "K."
+        },
+        {
+          "id": "2.8",
+          "word": "draugas",
+          "case": "Š."
+        }
+      ],
+      "sentences": [
+        {
+          "id": "3.1",
+          "sentence": "Čia yra ___ (stalas).",
+          "translation": "Здесь есть стол.",
+          "word": "stalas"
+        },
+        {
+          "id": "3.2",
+          "sentence": "Matau ___ (tiltas).",
+          "translation": "Я вижу мост.",
+          "word": "tiltas"
+        },
+        {
+          "id": "3.3",
+          "sentence": "Gyvenu šiame ___ (miestas).",
+          "translation": "Я живу в этом городе.",
+          "word": "miestas"
+        },
+        {
+          "id": "3.4",
+          "sentence": "Tai mano ___ (draugas).",
+          "translation": "Это мой друг.",
+          "word": "draugas"
+        },
+        {
+          "id": "3.5",
+          "sentence": "Duodu knygą ___ (draugas).",
+          "translation": "Я даю книгу другу.",
+          "word": "draugas"
+        },
+        {
+          "id": "3.6",
+          "sentence": "Einu į ___ (parkas).",
+          "translation": "Я иду в парк.",
+          "word": "parkas"
+        },
+        {
+          "id": "3.7",
+          "sentence": "Grįžtu iš ___ (parkas).",
+          "translation": "Я возвращаюсь из парка.",
+          "word": "parkas"
+        },
+        {
+          "id": "3.8",
+          "sentence": "Važiuoju su ___ (draugas).",
+          "translation": "Я еду с другом.",
+          "word": "draugas"
+        },
+        {
+          "id": "3.9",
+          "sentence": "___ (draugas), ateik čia!",
+          "translation": "Друг, подойди сюда!",
+          "word": "draugas"
+        },
+        {
+          "id": "3.10",
+          "sentence": "Neturiu ___ (darbas).",
+          "translation": "У меня нет работы.",
+          "word": "darbas"
+        },
+        {
+          "id": "3.11",
+          "sentence": "Knyga yra ant ___ (stalas).",
+          "translation": "Книга находится на столе.",
+          "word": "stalas"
+        },
+        {
+          "id": "3.12",
+          "sentence": "Džiaugiuosi savo ___ (sodas).",
+          "translation": "Я радуюсь своему саду.",
+          "word": "sodas"
+        },
+        {
+          "id": "3.13",
+          "sentence": "Šiam ___ (namas) reikia remonto.",
+          "translation": "Этому дому нужен ремонт.",
+          "word": "namas"
+        },
+        {
+          "id": "3.14",
+          "sentence": "Dirbu ___ (sodas).",
+          "translation": "Я работаю в саду.",
+          "word": "sodas"
+        }
+      ],
+      "corrections": [
+        {
+          "id": "4.1",
+          "sentence": "Matau namo."
+        },
+        {
+          "id": "4.2",
+          "sentence": "Gyvenu miestas."
+        },
+        {
+          "id": "4.3",
+          "sentence": "Einu į parko."
+        },
+        {
+          "id": "4.4",
+          "sentence": "Grįžtu iš parką."
+        },
+        {
+          "id": "4.5",
+          "sentence": "Kalbu su draugą."
+        },
+        {
+          "id": "4.6",
+          "sentence": "Duodu knygą draugą."
+        }
+      ],
+      "exit": [
+        {
+          "id": "5.1",
+          "sentence": "Matau ___ (sodas).",
+          "word": "sodas"
+        },
+        {
+          "id": "5.2",
+          "sentence": "Grįžtu iš ___ (miestas).",
+          "word": "miestas"
+        },
+        {
+          "id": "5.3",
+          "sentence": "Šiam ___ (tiltas) reikia remonto.",
+          "word": "tiltas"
+        },
+        {
+          "id": "5.4",
+          "sentence": "Dirbu ___ (parkas).",
+          "word": "parkas"
+        },
+        {
+          "id": "5.5",
+          "sentence": "Kalbu su ___ (draugas).",
+          "word": "draugas"
+        },
+        {
+          "id": "5.6",
+          "sentence": "Čia yra ___ (namas).",
+          "word": "namas"
+        },
+        {
+          "id": "5.7",
+          "sentence": "___ (draugas), palauk!",
+          "word": "draugas"
+        }
+      ]
+    }
+  ]
+}

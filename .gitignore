@@ -1,0 +1,6 @@
+.work/
+.DS_Store
+results/
+materials/
+node_modules/
+.env*

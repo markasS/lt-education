@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#132c39">
+  <meta name="description" content="Спокойная последовательная практика литовской грамматики. Задания, сохранение черновика и экспорт ответов.">
+  <title>Литовский язык — практика грамматики</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">LT</span><span>Литовский язык<small>Практика грамматики</small></span></a><span id="save-status" role="status">Загрузка занятия…</span></header>
+  <div class="layout">
+    <aside><div class="eyebrow">МОИ ЗАНЯТИЯ</div><label for="lesson-picker" class="sr-only">Выбрать занятие</label><select id="lesson-picker"></select><div class="week-note">Одна модель за раз.<br>Точность важнее скорости.</div><nav id="steps" aria-label="Шаги занятия"></nav><div class="history"><h2>Завершённые занятия</h2><div id="history"></div></div></aside>
+    <main id="main"><div class="lesson-heading"><div><div id="lesson-meta" class="eyebrow"></div><h1 id="lesson-title"></h1><p id="lesson-subtitle"></p></div><div class="duration">≈ 60 минут<small>в своём темпе</small></div></div><div class="progress-wrap"><div class="progress-label"><span id="progress-text"></span><span id="step-count"></span></div><progress id="progress" max="70" value="0" aria-label="Заполненные ответы"></progress></div><section id="content" aria-live="polite"></section><div class="navigation"><button id="previous" class="secondary">Назад</button><button id="next">Продолжить</button></div><p class="storage-note">Черновик хранится в этом браузере. После занятия скачайте ответы, чтобы сохранить копию и отправить её на проверку.</p><div id="error" role="alert" hidden></div></main>
+  </div>
+  <div class="keyboard" aria-label="Литовские буквы"><span>Литовские буквы</span><div id="letters"></div></div>
+  <dialog id="finish-dialog"><h2>Завершить занятие?</h2><p id="finish-message"></p><p>Первоначальные ответы сохранятся отдельной попыткой. Их можно скачать и отправить на проверку.</p><div class="dialog-actions"><button id="cancel-finish" class="secondary">Вернуться</button><button id="confirm-finish">Завершить и скачать</button></div></dialog>
+  <noscript>Для выполнения заданий включите JavaScript в браузере.</noscript>
+</body>
+</html>
