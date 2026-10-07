@@ -2471,7 +2471,7 @@
     },
     {
       "id": "W01-A-PL-FRI",
-      "version": 1,
+      "version": 2,
       "title": "-a: множественное число полностью",
       "subtitle": "Все семь падежей · сравнение моделей · задание по комиксу",
       "topic": "Полная регулярная модель -a во множественном числе; повторение -a единственного и -as обоих чисел",
@@ -3023,7 +3023,7 @@
             },
             {
               "id": "F5.5",
-              "word": "lagaminas",
+              "word": "autobusas",
               "number": "pl",
               "model": "-as",
               "chooseCase": false,
@@ -3047,7 +3047,7 @@
             },
             {
               "id": "F5.8",
-              "word": "dovana",
+              "word": "knyga",
               "number": "sg",
               "model": "-a",
               "chooseCase": false,
