@@ -1858,6 +1858,1414 @@
           ]
         }
       ]
+    },
+    {
+      "id": "W01-A-SG-THU",
+      "version": 1,
+      "title": "-a: единственное число полностью",
+      "subtitle": "Все семь падежей · повторение -as в обоих числах",
+      "topic": "Полная регулярная модель -a в единственном числе; повторение -as в двух числах",
+      "week": 1,
+      "day": "Четверг",
+      "minutes": 60,
+      "words": {
+        "namas": "дом",
+        "stalas": "стол",
+        "parkas": "парк",
+        "tiltas": "мост",
+        "miestas": "город",
+        "draugas": "друг",
+        "darbas": "работа",
+        "sodas": "сад",
+        "butas": "квартира",
+        "langas": "окно",
+        "studentas": "студент",
+        "telefonas": "телефон",
+        "planas": "план",
+        "bilietas": "билет",
+        "kaimynas": "сосед",
+        "autobusas": "автобус",
+        "lagaminas": "чемодан",
+        "bankas": "банк",
+        "teatras": "театр",
+        "vaikas": "ребёнок",
+        "knyga": "книга",
+        "mokykla": "школа",
+        "mašina": "машина",
+        "dovana": "подарок",
+        "diena": "день",
+        "šeima": "семья",
+        "mama": "мама",
+        "dukra": "дочь",
+        "ranka": "рука",
+        "lenta": "доска",
+        "vieta": "место",
+        "naujiena": "новость",
+        "spinta": "шкаф",
+        "kuprinė": "рюкзак (слово в тексте; модель -ė здесь не изучаем)",
+        "katė": "кошка (слово в тексте; модель -ė здесь не изучаем)"
+      },
+      "cases": [
+        {
+          "code": "V.",
+          "lt": "Vardininkas",
+          "ru": "Именительный",
+          "question": "kas?",
+          "ending": "-as",
+          "example": "namas"
+        },
+        {
+          "code": "K.",
+          "lt": "Kilmininkas",
+          "ru": "Родительный",
+          "question": "ko?",
+          "ending": "-o",
+          "example": "namo"
+        },
+        {
+          "code": "N.",
+          "lt": "Naudininkas",
+          "ru": "Дательный",
+          "question": "kam?",
+          "ending": "-ui",
+          "example": "namui"
+        },
+        {
+          "code": "G.",
+          "lt": "Galininkas",
+          "ru": "Винительный",
+          "question": "ką?",
+          "ending": "-ą",
+          "example": "namą"
+        },
+        {
+          "code": "Įn.",
+          "lt": "Įnagininkas",
+          "ru": "Творительный",
+          "question": "kuo?",
+          "ending": "-u",
+          "example": "namu"
+        },
+        {
+          "code": "Vt.",
+          "lt": "Vietininkas",
+          "ru": "Местный",
+          "question": "kur?",
+          "ending": "-e",
+          "example": "name"
+        },
+        {
+          "code": "Š.",
+          "lt": "Šauksmininkas",
+          "ru": "Звательный",
+          "question": "обращение",
+          "ending": "-e",
+          "example": "name"
+        }
+      ],
+      "sections": [
+        {
+          "id": "retrieval",
+          "title": "Вспомнить пройденное",
+          "minutes": 7,
+          "instruction": "Без памятки. Число и модель указаны у каждого задания. Повторяем изученные формы -as и четыре знакомых падежа -a.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "H1.1",
+              "word": "draugas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Sutinku ___ (draugas).",
+              "translation": "Встречаю друзей."
+            },
+            {
+              "id": "H1.2",
+              "word": "telefonas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Ieškau ___ (telefonas).",
+              "translation": "Ищу телефоны."
+            },
+            {
+              "id": "H1.3",
+              "word": "studentas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Dėkoju ___ (studentas).",
+              "translation": "Благодарю студентов."
+            },
+            {
+              "id": "H1.4",
+              "word": "vaikas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "___ (vaikas), klausykite!",
+              "translation": "Дети, слушайте!"
+            },
+            {
+              "id": "H1.5",
+              "word": "šeima",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Tai mano ___ (šeima) nuotrauka.",
+              "translation": "Это фотография моей семьи."
+            },
+            {
+              "id": "H1.6",
+              "word": "mašina",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Valau ___ (mašina).",
+              "translation": "Чищу машину."
+            },
+            {
+              "id": "H1.7",
+              "word": "kaimynas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Džiaugiuosi savo ___ (kaimynas).",
+              "translation": "Радуюсь своим соседям."
+            },
+            {
+              "id": "H1.8",
+              "word": "draugas",
+              "number": "sg",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Siunčiu laišką ___ (draugas).",
+              "translation": "Отправляю письмо другу."
+            }
+          ]
+        },
+        {
+          "id": "reference",
+          "title": "-a: все семь падежей",
+          "minutes": 7,
+          "instruction": "Полная регулярная модель -a в единственном числе / vienaskaita. В среду были четыре падежа; сегодня добавляем N., Įn., Š. и тренируем все семь вместе.",
+          "kind": "reference",
+          "models": [
+            {
+              "label": "-a · единственное число / vienaskaita",
+              "rows": [
+                {
+                  "code": "V.",
+                  "lt": "Vardininkas",
+                  "ru": "Именительный",
+                  "question": "kas?",
+                  "ending": "-a",
+                  "example": "knyga"
+                },
+                {
+                  "code": "K.",
+                  "lt": "Kilmininkas",
+                  "ru": "Родительный",
+                  "question": "ko?",
+                  "ending": "-os",
+                  "example": "knygos"
+                },
+                {
+                  "code": "N.",
+                  "lt": "Naudininkas",
+                  "ru": "Дательный",
+                  "question": "kam?",
+                  "ending": "-ai",
+                  "example": "knygai"
+                },
+                {
+                  "code": "G.",
+                  "lt": "Galininkas",
+                  "ru": "Винительный",
+                  "question": "ką?",
+                  "ending": "-ą",
+                  "example": "knygą"
+                },
+                {
+                  "code": "Įn.",
+                  "lt": "Įnagininkas",
+                  "ru": "Творительный",
+                  "question": "kuo?",
+                  "ending": "-a",
+                  "example": "knyga"
+                },
+                {
+                  "code": "Vt.",
+                  "lt": "Vietininkas",
+                  "ru": "Местный",
+                  "question": "kur?",
+                  "ending": "-oje",
+                  "example": "knygoje"
+                },
+                {
+                  "code": "Š.",
+                  "lt": "Šauksmininkas",
+                  "ru": "Звательный",
+                  "question": "обращение",
+                  "ending": "-a",
+                  "example": "knyga"
+                }
+              ]
+            }
+          ],
+          "note": "N. Naudininkas / дательный: knygai (-ai). Įn. Įnagininkas / творительный: knyga (-a). Š. Šauksmininkas / звательный: knyga (-a). Формы V., Įn. и Š. совпадают: падеж определяется предложением. K. единственного: -as → -o, но -a → -os. Ударение пока не проверяем."
+        },
+        {
+          "id": "table",
+          "title": "Собрать полную модель",
+          "minutes": 11,
+          "instruction": "Просклоняйте два новых слова во всех семи падежах единственного числа. Пишите полное заданное слово, сохраняя основу. Звательный неодушевлённых слов служит тренировкой формы.",
+          "kind": "table",
+          "words": [
+            "ranka",
+            "lenta"
+          ],
+          "caseCodes": [
+            "V.",
+            "K.",
+            "N.",
+            "G.",
+            "Įn.",
+            "Vt.",
+            "Š."
+          ],
+          "number": "sg",
+          "model": "-a",
+          "prefix": "H2"
+        },
+        {
+          "id": "choose",
+          "title": "Выбрать форму и падеж",
+          "minutes": 6,
+          "instruction": "Выберите одну из трёх форм, затем падеж. Здесь тренируем новые N., Įn., Š. Слова предложения менять не нужно.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "H3.1",
+              "word": "dukra",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Duodu obuolį ___ (dukra).",
+              "translation": "Даю яблоко дочери.",
+              "options": [
+                "dukrą",
+                "dukrai",
+                "dukra"
+              ]
+            },
+            {
+              "id": "H3.2",
+              "word": "mama",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Einu su ___ (mama).",
+              "translation": "Иду с мамой.",
+              "options": [
+                "mamos",
+                "mamai",
+                "mama"
+              ]
+            },
+            {
+              "id": "H3.3",
+              "word": "mama",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "___ (mama), pažiūrėk!",
+              "translation": "Мама, посмотри!",
+              "options": [
+                "mamą",
+                "mama",
+                "mamai"
+              ]
+            },
+            {
+              "id": "H3.4",
+              "word": "mokykla",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Šiai ___ (mokykla) reikia knygų.",
+              "translation": "Этой школе нужны книги.",
+              "options": [
+                "mokyklos",
+                "mokyklą",
+                "mokyklai"
+              ]
+            },
+            {
+              "id": "H3.5",
+              "word": "dovana",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Džiaugiuosi šia ___ (dovana).",
+              "translation": "Радуюсь этому подарку.",
+              "options": [
+                "dovana",
+                "dovanai",
+                "dovanos"
+              ]
+            },
+            {
+              "id": "H3.6",
+              "word": "dukra",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "___ (dukra), ateik pas mane!",
+              "translation": "Дочь, подойди ко мне!",
+              "options": [
+                "dukrai",
+                "dukra",
+                "dukros"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "contexts",
+          "title": "Одинаковая форма — разные падежи",
+          "minutes": 12,
+          "instruction": "Впишите форму и выберите падеж. Даже если написание совпадает, смысл и падеж могут различаться. Все целевые слова на -a — в единственном числе.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "H4.1",
+              "word": "mama",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Mano ___ (mama) skaito.",
+              "translation": "Моя мама читает."
+            },
+            {
+              "id": "H4.2",
+              "word": "mama",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Kalbu su ___ (mama).",
+              "translation": "Говорю с мамой."
+            },
+            {
+              "id": "H4.3",
+              "word": "mama",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "___ (mama), palauk manęs!",
+              "translation": "Мама, подожди меня!"
+            },
+            {
+              "id": "H4.4",
+              "word": "dukra",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Padedu ___ (dukra).",
+              "translation": "Помогаю дочери."
+            },
+            {
+              "id": "H4.5",
+              "word": "knyga",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Šiai ___ (knyga) reikia viršelio.",
+              "translation": "Этой книге нужна обложка."
+            },
+            {
+              "id": "H4.6",
+              "word": "mašina",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Važiuoju ___ (mašina).",
+              "translation": "Еду на машине."
+            },
+            {
+              "id": "H4.7",
+              "word": "spinta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Drabužiai yra ___ (spinta).",
+              "translation": "Одежда в шкафу."
+            },
+            {
+              "id": "H4.8",
+              "word": "ranka",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Pakeliu ___ (ranka).",
+              "translation": "Поднимаю руку."
+            },
+            {
+              "id": "H4.9",
+              "word": "vieta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Ieškau ___ (vieta).",
+              "translation": "Ищу место."
+            },
+            {
+              "id": "H4.10",
+              "word": "dukra",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Mano ___ (dukra) piešia.",
+              "translation": "Моя дочь рисует."
+            }
+          ]
+        },
+        {
+          "id": "repair",
+          "title": "Исправить только существительное",
+          "minutes": 7,
+          "instruction": "В каждом предложении одна неверная форма. Впишите исправленное слово и выберите падеж. В этом блоке все слова — -a, единственное число.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "H5.1",
+              "word": "mama",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Dėkoju mamą.",
+              "translation": "Благодарю маму."
+            },
+            {
+              "id": "H5.2",
+              "word": "mašina",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Važiuoju mašinai.",
+              "translation": "Еду на машине."
+            },
+            {
+              "id": "H5.3",
+              "word": "mokykla",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Grįžtu iš mokyklo.",
+              "translation": "Возвращаюсь из школы."
+            },
+            {
+              "id": "H5.4",
+              "word": "dukra",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Dukrą, klausyk!",
+              "translation": "Дочь, слушай!"
+            },
+            {
+              "id": "H5.5",
+              "word": "knyga",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Atverčiu knygos.",
+              "translation": "Открываю книгу."
+            },
+            {
+              "id": "H5.6",
+              "word": "šeima",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Augau šeimą.",
+              "translation": "Я выросла в семье."
+            }
+          ]
+        },
+        {
+          "id": "exit",
+          "title": "Семь падежей без памятки",
+          "minutes": 10,
+          "instruction": "Сначала семь форм -a в единственном числе: по одной на каждый падеж. Затем одно задание на -as. Ответьте без памятки.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "H6.1",
+              "word": "naujiena",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "V."
+            },
+            {
+              "id": "H6.2",
+              "word": "ranka",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "K."
+            },
+            {
+              "id": "H6.3",
+              "word": "mama",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "N."
+            },
+            {
+              "id": "H6.4",
+              "word": "spinta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "G."
+            },
+            {
+              "id": "H6.5",
+              "word": "dukra",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Įn."
+            },
+            {
+              "id": "H6.6",
+              "word": "vieta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Vt."
+            },
+            {
+              "id": "H6.7",
+              "word": "mama",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Š."
+            },
+            {
+              "id": "H6.8",
+              "word": "kaimynas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "G."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W01-A-PL-FRI",
+      "version": 1,
+      "title": "-a: множественное число полностью",
+      "subtitle": "Все семь падежей · сравнение моделей · задание по комиксу",
+      "topic": "Полная регулярная модель -a во множественном числе; повторение -a единственного и -as обоих чисел",
+      "week": 1,
+      "day": "Пятница",
+      "minutes": 75,
+      "words": {
+        "namas": "дом",
+        "stalas": "стол",
+        "parkas": "парк",
+        "tiltas": "мост",
+        "miestas": "город",
+        "draugas": "друг",
+        "darbas": "работа",
+        "sodas": "сад",
+        "butas": "квартира",
+        "langas": "окно",
+        "studentas": "студент",
+        "telefonas": "телефон",
+        "planas": "план",
+        "bilietas": "билет",
+        "kaimynas": "сосед",
+        "autobusas": "автобус",
+        "lagaminas": "чемодан",
+        "bankas": "банк",
+        "teatras": "театр",
+        "vaikas": "ребёнок",
+        "knyga": "книга",
+        "mokykla": "школа",
+        "mašina": "машина",
+        "dovana": "подарок",
+        "diena": "день",
+        "šeima": "семья",
+        "mama": "мама",
+        "dukra": "дочь",
+        "ranka": "рука",
+        "lenta": "доска",
+        "vieta": "место",
+        "naujiena": "новость",
+        "spinta": "шкаф",
+        "kuprinė": "рюкзак (слово в тексте; модель -ė здесь не изучаем)",
+        "katė": "кошка (слово в тексте; модель -ė здесь не изучаем)"
+      },
+      "cases": [
+        {
+          "code": "V.",
+          "lt": "Vardininkas",
+          "ru": "Именительный",
+          "question": "kas?",
+          "ending": "-as",
+          "example": "namas"
+        },
+        {
+          "code": "K.",
+          "lt": "Kilmininkas",
+          "ru": "Родительный",
+          "question": "ko?",
+          "ending": "-o",
+          "example": "namo"
+        },
+        {
+          "code": "N.",
+          "lt": "Naudininkas",
+          "ru": "Дательный",
+          "question": "kam?",
+          "ending": "-ui",
+          "example": "namui"
+        },
+        {
+          "code": "G.",
+          "lt": "Galininkas",
+          "ru": "Винительный",
+          "question": "ką?",
+          "ending": "-ą",
+          "example": "namą"
+        },
+        {
+          "code": "Įn.",
+          "lt": "Įnagininkas",
+          "ru": "Творительный",
+          "question": "kuo?",
+          "ending": "-u",
+          "example": "namu"
+        },
+        {
+          "code": "Vt.",
+          "lt": "Vietininkas",
+          "ru": "Местный",
+          "question": "kur?",
+          "ending": "-e",
+          "example": "name"
+        },
+        {
+          "code": "Š.",
+          "lt": "Šauksmininkas",
+          "ru": "Звательный",
+          "question": "обращение",
+          "ending": "-e",
+          "example": "name"
+        }
+      ],
+      "sections": [
+        {
+          "id": "retrieval",
+          "title": "Повторение перед новой темой",
+          "minutes": 8,
+          "instruction": "Без памятки. Повторяем полную модель -a в единственном числе и ранее изученное -as. Падеж и число указаны.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "F1.1",
+              "word": "spinta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "N."
+            },
+            {
+              "id": "F1.2",
+              "word": "lenta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "K."
+            },
+            {
+              "id": "F1.3",
+              "word": "vieta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Įn."
+            },
+            {
+              "id": "F1.4",
+              "word": "dukra",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Š."
+            },
+            {
+              "id": "F1.5",
+              "word": "draugas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "G."
+            },
+            {
+              "id": "F1.6",
+              "word": "kaimynas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "N."
+            },
+            {
+              "id": "F1.7",
+              "word": "bilietas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "Įn."
+            },
+            {
+              "id": "F1.8",
+              "word": "vaikas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "Š."
+            }
+          ]
+        },
+        {
+          "id": "reference",
+          "title": "-a: множественное число полностью",
+          "minutes": 7,
+          "instruction": "Новая тема — все семь падежей регулярных существительных на -a во множественном числе / daugiskaita. Сравните с единственным числом.",
+          "kind": "reference",
+          "models": [
+            {
+              "label": "-a · единственное число / vienaskaita",
+              "rows": [
+                {
+                  "code": "V.",
+                  "lt": "Vardininkas",
+                  "ru": "Именительный",
+                  "question": "kas?",
+                  "ending": "-a",
+                  "example": "knyga"
+                },
+                {
+                  "code": "K.",
+                  "lt": "Kilmininkas",
+                  "ru": "Родительный",
+                  "question": "ko?",
+                  "ending": "-os",
+                  "example": "knygos"
+                },
+                {
+                  "code": "N.",
+                  "lt": "Naudininkas",
+                  "ru": "Дательный",
+                  "question": "kam?",
+                  "ending": "-ai",
+                  "example": "knygai"
+                },
+                {
+                  "code": "G.",
+                  "lt": "Galininkas",
+                  "ru": "Винительный",
+                  "question": "ką?",
+                  "ending": "-ą",
+                  "example": "knygą"
+                },
+                {
+                  "code": "Įn.",
+                  "lt": "Įnagininkas",
+                  "ru": "Творительный",
+                  "question": "kuo?",
+                  "ending": "-a",
+                  "example": "knyga"
+                },
+                {
+                  "code": "Vt.",
+                  "lt": "Vietininkas",
+                  "ru": "Местный",
+                  "question": "kur?",
+                  "ending": "-oje",
+                  "example": "knygoje"
+                },
+                {
+                  "code": "Š.",
+                  "lt": "Šauksmininkas",
+                  "ru": "Звательный",
+                  "question": "обращение",
+                  "ending": "-a",
+                  "example": "knyga"
+                }
+              ]
+            },
+            {
+              "label": "-a · множественное число / daugiskaita",
+              "rows": [
+                {
+                  "code": "V.",
+                  "lt": "Vardininkas",
+                  "ru": "Именительный",
+                  "question": "kas?",
+                  "ending": "-os",
+                  "example": "knygos"
+                },
+                {
+                  "code": "K.",
+                  "lt": "Kilmininkas",
+                  "ru": "Родительный",
+                  "question": "ko?",
+                  "ending": "-ų",
+                  "example": "knygų"
+                },
+                {
+                  "code": "N.",
+                  "lt": "Naudininkas",
+                  "ru": "Дательный",
+                  "question": "kam?",
+                  "ending": "-oms",
+                  "example": "knygoms"
+                },
+                {
+                  "code": "G.",
+                  "lt": "Galininkas",
+                  "ru": "Винительный",
+                  "question": "ką?",
+                  "ending": "-as",
+                  "example": "knygas"
+                },
+                {
+                  "code": "Įn.",
+                  "lt": "Įnagininkas",
+                  "ru": "Творительный",
+                  "question": "kuo?",
+                  "ending": "-omis",
+                  "example": "knygomis"
+                },
+                {
+                  "code": "Vt.",
+                  "lt": "Vietininkas",
+                  "ru": "Местный",
+                  "question": "kur?",
+                  "ending": "-ose",
+                  "example": "knygose"
+                },
+                {
+                  "code": "Š.",
+                  "lt": "Šauksmininkas",
+                  "ru": "Звательный",
+                  "question": "обращение",
+                  "ending": "-os",
+                  "example": "knygos"
+                }
+              ]
+            }
+          ],
+          "note": "N. Naudininkas / дательный: knygoms (-oms). Įn. Įnagininkas / творительный: knygomis (-omis). G. Galininkas / винительный: knygas (-as), без ą. K. Kilmininkas / родительный: knygų (-ų). V. и Š. множественного совпадают: knygos."
+        },
+        {
+          "id": "table",
+          "title": "Два слова во множественном числе",
+          "minutes": 11,
+          "instruction": "Заполните все семь падежей для knyga и mašina. Здесь везде множественное число. Звательный предметов нужен для тренировки формы.",
+          "kind": "table",
+          "words": [
+            "knyga",
+            "mašina"
+          ],
+          "caseCodes": [
+            "V.",
+            "K.",
+            "N.",
+            "G.",
+            "Įn.",
+            "Vt.",
+            "Š."
+          ],
+          "number": "pl",
+          "model": "-a",
+          "prefix": "F2"
+        },
+        {
+          "id": "transform",
+          "title": "Поменять число, сохранить падеж",
+          "minutes": 8,
+          "instruction": "Дана форма одного числа. Запишите форму другого числа в том же падеже. Направление перехода указано: задания идут в обе стороны.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "F3.1",
+              "word": "dukra",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "N.",
+              "prompt": "dukrai → множественное число"
+            },
+            {
+              "id": "F3.2",
+              "word": "spinta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Vt.",
+              "prompt": "spintose → единственное число"
+            },
+            {
+              "id": "F3.3",
+              "word": "dovana",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "G.",
+              "prompt": "dovaną → множественное число"
+            },
+            {
+              "id": "F3.4",
+              "word": "ranka",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Įn.",
+              "prompt": "ranka → множественное число"
+            },
+            {
+              "id": "F3.5",
+              "word": "vieta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "K.",
+              "prompt": "vietų → единственное число"
+            },
+            {
+              "id": "F3.6",
+              "word": "mama",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Š.",
+              "prompt": "mama → множественное число"
+            },
+            {
+              "id": "F3.7",
+              "word": "lenta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "V.",
+              "prompt": "lentos → единственное число"
+            },
+            {
+              "id": "F3.8",
+              "word": "šeima",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "K.",
+              "prompt": "šeimos → множественное число"
+            }
+          ]
+        },
+        {
+          "id": "story",
+          "title": "Маленькие ситуации",
+          "minutes": 10,
+          "instruction": "Впишите форму и выберите падеж. Все целевые слова на -a здесь во множественном числе. Перевод дан для смысла, писать объяснения не нужно.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "F4.1",
+              "word": "mokykla",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Šios ___ (mokykla) yra naujos.",
+              "translation": "Эти школы новые."
+            },
+            {
+              "id": "F4.2",
+              "word": "dukra",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Mama pasakoja ___ (dukra) istoriją.",
+              "translation": "Мама рассказывает дочерям историю."
+            },
+            {
+              "id": "F4.3",
+              "word": "dovana",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Vakar ieškojau ___ (dovana).",
+              "translation": "Вчера я искала подарки."
+            },
+            {
+              "id": "F4.4",
+              "word": "mašina",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Mechanikas taiso ___ (mašina).",
+              "translation": "Механик ремонтирует машины."
+            },
+            {
+              "id": "F4.5",
+              "word": "ranka",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Vaikas mojuoja ___ (ranka).",
+              "translation": "Ребёнок машет руками."
+            },
+            {
+              "id": "F4.6",
+              "word": "šeima",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Vaikai auga šiose ___ (šeima).",
+              "translation": "Дети растут в этих семьях."
+            },
+            {
+              "id": "F4.7",
+              "word": "mama",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "___ (mama), ateikite į salę!",
+              "translation": "Мамы, пройдите в зал!"
+            },
+            {
+              "id": "F4.8",
+              "word": "dukra",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Tėtis kalba su ___ (dukra).",
+              "translation": "Папа говорит с дочерями."
+            },
+            {
+              "id": "F4.9",
+              "word": "mokykla",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Prie šių ___ (mokykla) yra parkai.",
+              "translation": "Возле этих школ есть парки."
+            },
+            {
+              "id": "F4.10",
+              "word": "vieta",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Rezervuoju ___ (vieta).",
+              "translation": "Бронирую места."
+            }
+          ]
+        },
+        {
+          "id": "compare",
+          "title": "Две модели: окончания рядом",
+          "minutes": 8,
+          "instruction": "Образуйте заданные формы. В каждой паре одинаковые падеж и число, но разные модели. Сначала -as, затем -a. Следите за -ams / -oms и -ais / -omis.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "F5.1",
+              "word": "studentas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "N."
+            },
+            {
+              "id": "F5.2",
+              "word": "mama",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "N."
+            },
+            {
+              "id": "F5.3",
+              "word": "kaimynas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "Įn."
+            },
+            {
+              "id": "F5.4",
+              "word": "dukra",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Įn."
+            },
+            {
+              "id": "F5.5",
+              "word": "lagaminas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "G."
+            },
+            {
+              "id": "F5.6",
+              "word": "spinta",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "G."
+            },
+            {
+              "id": "F5.7",
+              "word": "telefonas",
+              "number": "sg",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "K."
+            },
+            {
+              "id": "F5.8",
+              "word": "dovana",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "K."
+            }
+          ]
+        },
+        {
+          "id": "picture",
+          "title": "Кот, подарки и поездка",
+          "minutes": 13,
+          "instruction": "Рассмотрите кадры A–D. Для каждого пропуска выберите по картинке одно из двух слов в начальной форме, затем впишите его в нужной форме и выберите падеж. Число и модель указаны. В кадре A мама вручает подарок дочери. Katė — кошка, gauna — получает, duoda — даёт, sėdi — сидит, guli — лежат, eina — идут, keliauja — путешествуют, džiaugiasi — радуется. Перевод вариантов показан под заданием.",
+          "kind": "picture",
+          "image": {
+            "src": "assets/friday-comic.png",
+            "alt": "Комикс из четырёх кадров A–D для упражнения на выбор слова и падежа.",
+            "description": "На картинке: A — мама вручает дочери один подарок; B — кот сидит на трёх книгах, книги лежат на столе; C — двое друзей с двумя чемоданами идут в парк; D — дочь сидит в машине и держит два билета."
+          },
+          "questions": [
+            {
+              "id": "F6.1",
+              "word": null,
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "A. Dukra gauna ___ .",
+              "wordOptions": [
+                "knyga",
+                "dovana"
+              ],
+              "panel": "A"
+            },
+            {
+              "id": "F6.2",
+              "word": null,
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "A. Mama duoda dovaną ___ .",
+              "wordOptions": [
+                "dukra",
+                "mama"
+              ],
+              "panel": "A"
+            },
+            {
+              "id": "F6.3",
+              "word": null,
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "B. Katė sėdi ant ___ .",
+              "wordOptions": [
+                "knyga",
+                "dovana"
+              ],
+              "panel": "B"
+            },
+            {
+              "id": "F6.4",
+              "word": null,
+              "number": "sg",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "B. Knygos guli ant ___ .",
+              "wordOptions": [
+                "tiltas",
+                "stalas"
+              ],
+              "panel": "B"
+            },
+            {
+              "id": "F6.5",
+              "word": null,
+              "number": "sg",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "C. Draugai eina į ___ .",
+              "wordOptions": [
+                "bankas",
+                "parkas"
+              ],
+              "panel": "C"
+            },
+            {
+              "id": "F6.6",
+              "word": null,
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "C. Draugai keliauja su ___ .",
+              "wordOptions": [
+                "lagaminas",
+                "bilietas"
+              ],
+              "panel": "C"
+            },
+            {
+              "id": "F6.7",
+              "word": null,
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "D. Dukra sėdi ___ .",
+              "wordOptions": [
+                "mokykla",
+                "mašina"
+              ],
+              "panel": "D"
+            },
+            {
+              "id": "F6.8",
+              "word": null,
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "D. Dukra džiaugiasi šiais ___ .",
+              "wordOptions": [
+                "bilietas",
+                "lagaminas"
+              ],
+              "panel": "D"
+            }
+          ]
+        },
+        {
+          "id": "exit",
+          "title": "Итог: новая тема и повторение",
+          "minutes": 10,
+          "instruction": "Без памятки. Первые семь заданий — -a во множественном числе: по одному на каждый падеж. Последние три — -as в предложениях; число указано.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "F7.1",
+              "word": "dovana",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "V."
+            },
+            {
+              "id": "F7.2",
+              "word": "lenta",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "K."
+            },
+            {
+              "id": "F7.3",
+              "word": "šeima",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "N."
+            },
+            {
+              "id": "F7.4",
+              "word": "ranka",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "G."
+            },
+            {
+              "id": "F7.5",
+              "word": "spinta",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Įn."
+            },
+            {
+              "id": "F7.6",
+              "word": "vieta",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Vt."
+            },
+            {
+              "id": "F7.7",
+              "word": "dukra",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Š."
+            },
+            {
+              "id": "F8.1",
+              "word": "kaimynas",
+              "number": "sg",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Dėkoju ___ (kaimynas) už pagalbą.",
+              "translation": "Благодарю соседа за помощь."
+            },
+            {
+              "id": "F8.2",
+              "word": "bilietas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Ieškau savo ___ (bilietas).",
+              "translation": "Ищу свои билеты."
+            },
+            {
+              "id": "F8.3",
+              "word": "telefonas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Džiaugiuosi šiais ___ (telefonas).",
+              "translation": "Радуюсь этим телефонам."
+            }
+          ]
+        }
+      ]
     }
   ]
 }

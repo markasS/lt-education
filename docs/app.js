@@ -28,7 +28,7 @@ function sectionQuestions(section) {
   return section.questions || [];
 }
 function allQuestions() {
-  return lesson.sections.flatMap(section => sectionQuestions(section).map(q => ({...q,section:section.id,prompt:q.sentence||q.prompt||q.word,requestedCase:q.case||null,instruction:section.instruction})));
+  return lesson.sections.flatMap(section => sectionQuestions(section).map(q => ({...q,section:section.id,prompt:q.sentence||q.prompt||q.word,requestedCase:q.case||null,instruction:section.instruction,imageContext:section.image||null})));
 }
 function count() { return allQuestions().filter(q => value(q.id).trim()).length; }
 function input(id, label, cls='answer-field') {
@@ -37,15 +37,23 @@ function input(id, label, cls='answer-field') {
 function caseSelect(q, allowed) {
   return `<select class="case-field" data-id="${esc(q.id)}" data-field="case" aria-label="Падеж для задания ${esc(q.id)}" ${draft.completed ? 'disabled' : ''}><option value="">Выберите падеж</option>${lesson.cases.filter(c => !allowed || allowed.includes(c.code)).map(c => `<option value="${esc(c.code)}" ${draft.answers[q.id]?.case === c.code ? 'selected' : ''}>${esc(c.code)} ${esc(c.lt)} — ${esc(c.ru.toLowerCase())}</option>`).join('')}</select>`;
 }
+function answerControl(q) {
+  if (!q.options) return input(q.id, `Форма для ${q.id}`);
+  return `<select class="answer-field" id="answer-${esc(q.id)}" data-id="${esc(q.id)}" data-field="value" aria-label="Форма для ${esc(q.id)}" ${draft.completed ? 'disabled' : ''}><option value="">Выберите форму</option>${q.options.map(option=>`<option value="${esc(option)}" ${value(q.id)===option ? 'selected' : ''}>${esc(option)}</option>`).join('')}</select>`;
+}
 function question(q, allowed) {
   const c = lesson.cases.find(c => c.code === q.case);
   const base = q.prompt || `${q.word} (${lesson.words[q.word]})`;
+  const choices = q.wordOptions ? `<p class="word-options">Слова: ${q.wordOptions.map(w=>`<span lang="lt">${esc(w)}</span> — ${esc(lesson.words[w])}`).join(' / ')}</p>` : '';
   const prompt = q.chooseCase ? q.sentence : `${base} → ${c.ru} / ${c.lt} (${c.code})`;
-  return `<div class="question"><label class="main-label" for="answer-${esc(q.id)}"><span class="id">${esc(q.id)}</span><span>${esc(prompt)}</span></label><p class="translation">${esc(numberName(q.number))} · модель ${esc(q.model)}${q.translation ? ' · '+esc(q.translation) : ''}</p><div class="answer-line">${input(q.id, `Форма для ${q.id}`)}${q.chooseCase ? caseSelect(q,allowed) : ''}</div></div>`;
+  return `<div class="question"><label class="main-label" for="answer-${esc(q.id)}"><span class="id">${esc(q.id)}</span><span>${esc(prompt)}</span></label>${choices}<p class="translation">${esc(numberName(q.number))} · модель ${esc(q.model)}${q.translation ? ' · '+esc(q.translation) : ''}</p><div class="answer-line">${answerControl(q)}${q.chooseCase ? caseSelect(q,allowed) : ''}</div></div>`;
 }
 function renderSection(section) {
   let html = intro(esc(section.title),`Около ${section.minutes} минут`,esc(section.instruction));
-  if (section.kind === 'reference') {
+  if (section.kind === 'picture') {
+    html += `<figure class="picture-task"><a href="${esc(section.image.src)}" target="_blank" rel="noopener" aria-label="Открыть комикс крупнее"><img src="${esc(section.image.src)}" alt="${esc(section.image.alt)}" width="1536" height="1024"></a><figcaption>Кадры A–D. Нажмите на картинку, чтобы открыть её крупнее.</figcaption></figure><details class="hint-details"><summary>Текстовое описание картинки</summary><p>${esc(section.image.description)}</p></details>`;
+    html += section.questions.map(q=>question(q,section.caseCodes)).join('');
+  } else if (section.kind === 'reference') {
     html += section.models.map(model => `<h3>${esc(model.label)}</h3><div class="table-scroll"><table class="reference-table"><thead><tr><th>Падеж</th><th>Вопрос</th><th>Окончание</th><th>Образец</th></tr></thead><tbody>${model.rows.map(c => `<tr><td><span lang="lt">${esc(c.code)} ${esc(c.lt)}</span><small>${esc(c.ru)}</small></td><td>${esc(c.question)}</td><td>${esc(c.ending)}</td><td lang="lt">${esc(c.example)}</td></tr>`).join('')}</tbody></table></div>`).join('');
     if(section.note) html += `<p>${esc(section.note)}</p>`;
   } else if (section.kind === 'table') {
@@ -84,7 +92,7 @@ function renderHistory() {
   $('history').innerHTML = h.length ? h.slice().reverse().map(a => `<button class="secondary" data-attempt="${esc(a.attemptId)}">${esc(a.lesson.title)}<br>${new Date(a.completedAt).toLocaleDateString('ru-RU')} · скачать</button>`).join('') : '<p>После завершения здесь появятся файлы ваших ответов.</p>';
 }
 function makeExport(completed=false) {
-  return {schemaVersion:2,attemptId:draft.attemptId,lesson:{id:lesson.id,version:lesson.version,title:lesson.title,topic:lesson.topic,week:lesson.week,day:lesson.day},status:completed?'completed':'draft',startedAt:draft.startedAt,completedAt:completed?new Date().toISOString():null,exportedAt:new Date().toISOString(),elapsedSeconds:elapsed(),durationNote:'Время открытой страницы, включая возможные паузы; не показатель скорости.',cases:lesson.cases.map(({code,lt,ru})=>({code,lt,ru})),answers:allQuestions().map(q=>({id:q.id,section:q.section,prompt:q.prompt,instruction:q.instruction,word:q.word||null,requestedCase:q.requestedCase,requestedNumber:q.number,model:q.model,caseSelectionRequired:q.chooseCase,value:value(q.id),selectedCase:draft.answers[q.id]?.case||null})),filledForms:count(),totalForms:allQuestions().length,evaluation:null};
+  return {schemaVersion:2,attemptId:draft.attemptId,lesson:{id:lesson.id,version:lesson.version,title:lesson.title,topic:lesson.topic,week:lesson.week,day:lesson.day},status:completed?'completed':'draft',startedAt:draft.startedAt,completedAt:completed?new Date().toISOString():null,exportedAt:new Date().toISOString(),elapsedSeconds:elapsed(),durationNote:'Время открытой страницы, включая возможные паузы; не показатель скорости.',cases:lesson.cases.map(({code,lt,ru})=>({code,lt,ru})),answers:allQuestions().map(q=>({id:q.id,section:q.section,prompt:q.prompt,instruction:q.instruction,word:q.word||null,requestedCase:q.requestedCase,requestedNumber:q.number,model:q.model,caseSelectionRequired:q.chooseCase,...(q.options?{formOptions:q.options}:{}),...(q.wordOptions?{wordOptions:q.wordOptions}:{}),...(q.imageContext?{imageContext:q.imageContext,panel:q.panel}:{}),value:value(q.id),selectedCase:draft.answers[q.id]?.case||null})),filledForms:count(),totalForms:allQuestions().length,evaluation:null};
 }
 function download(data) {
   const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}));
