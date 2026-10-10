@@ -3,11 +3,24 @@ const G=require('../docs/grading.js'),keys=JSON.parse(fs.readFileSync('docs/answ
 const lesson=lessons.find(l=>l.id==='W01-AS-PL-TUE'),key=keys[`${lesson.id}:v${lesson.version}`];
 function attempt(){return {lesson:{id:lesson.id,version:lesson.version},answers:Object.entries(key.answers).map(([id,e])=>({id,prompt:'Проверка',value:e.value,selectedCase:e.chooseCase?e.case:null}))};}
 const grade=a=>G.evaluate(a,key,lesson.cases,lesson.words);
-test('all five keys cover exact catalog IDs; all correct answers score completely',()=>{
- for(const l of lessons){const k=keys[`${l.id}:v${l.version}`];const a={lesson:{id:l.id,version:l.version},answers:Object.entries(k.answers).map(([id,e])=>({id,value:e.value,selectedCase:e.chooseCase?e.case:null}))};const r=G.evaluate(a,k,l.cases,l.words);assert.equal(r.fullyCorrect,a.answers.length);assert.deepEqual(r.incorrectIds,[]);}
+test('all keys cover exact catalog IDs; all correct answers score completely',()=>{
+ for(const l of lessons){const k=keys[`${l.id}:v${l.version}`];const ids=l.sections.flatMap(s=>s.kind==='table'?s.caseCodes.flatMap((c,i)=>s.words.map(w=>`${s.prefix}.${i+1}.${w}`)):(s.questions||[]).map(q=>q.id));assert.equal(new Set(ids).size,ids.length);assert.deepEqual(Object.keys(k.answers).sort(),ids.sort());const a={lesson:{id:l.id,version:l.version},answers:Object.entries(k.answers).map(([id,e])=>({id,value:e.value,selectedCase:e.chooseCase?e.case:null}))};const r=G.evaluate(a,k,l.cases,l.words);assert.equal(r.fullyCorrect,a.answers.length);assert.deepEqual(r.incorrectIds,[]);}
 });
 test('case and form assessed separately; mistakes count once for retry',()=>{const a=attempt();a.answers.find(x=>x.id==='T4.3').selectedCase='Įn.';const r=grade(a);assert.equal(r.formScore.correct,50);assert.equal(r.caseScore.correct,19);assert.deepEqual(r.incorrectIds,['T4.3']);});
 test('normalization accepts capitalization, surrounding whitespace, equivalent Unicode; preserves accents',()=>{assert.equal(G.normalize('  ŠEIMA  '),'šeima');assert.equal(G.normalize('s\u030c'),'š');const a=attempt();a.answers.find(x=>x.id==='T1.1').value='LANGĄ ';assert.equal(grade(a).formScore.correct,50);a.answers.find(x=>x.id==='T1.1').value='langa';const c=grade(a).checks.find(c=>c.id==='T1.1');assert.equal(c.formCorrect,false);assert.equal(c.feedback.type,'spelling');});
 test('wrong stem and y/i described precisely; arbitrary errors receive factual generic explanation',()=>{const a=attempt();a.answers.find(x=>x.id==='T2.4.butas').value='darbus';a.answers.find(x=>x.id==='T1.2').value='kaiminui';a.answers.find(x=>x.id==='T3.4').value='???';const r=grade(a);assert.equal(r.checks.find(x=>x.id==='T2.4.butas').feedback.type,'different-word');assert.equal(r.checks.find(x=>x.id==='T1.2').feedback.type,'spelling');assert.equal(r.checks.find(x=>x.id==='T3.4').feedback.type,'form');assert(r.checks.every(c=>c.rule&&c.ending));});
 test('empty response and empty case are errors, with full denominators',()=>{const a=attempt();const x=a.answers.find(x=>x.id==='T1.1');x.value='';x.selectedCase=null;const r=grade(a);assert.equal(r.formScore.correct,49);assert.equal(r.caseScore.correct,19);assert.equal(r.caseScore.total,20);assert.deepEqual(r.incorrectIds,['T1.1']);});
 test('wrong version, duplicate IDs, missing answers rejected; subset practice cannot alter source',()=>{let a=attempt();a.lesson.version=99;assert.throws(()=>grade(a));a=attempt();a.answers[0]={...a.answers[1]};assert.throws(()=>grade(a));a=attempt();a.answers.pop();assert.throws(()=>grade(a));a=attempt();const saved=JSON.stringify(a);const subset={...a,answers:a.answers.filter(q=>['T1.1','T4.3'].includes(q.id))};const r=G.evaluate(subset,key,lesson.cases,lesson.words,['T1.1','T4.3']);assert.equal(r.formScore.total,2);assert.equal(JSON.stringify(a),saved);});
+test('-ė singular feedback distinguishes e, ė and ę without assuming plural rules',()=>{
+ const l=lessons.find(l=>l.id==='L07-E-SG'),k=keys[`${l.id}:v${l.version}`];
+ const a={lesson:{id:l.id,version:l.version},answers:Object.entries(k.answers).map(([id,e])=>({id,value:e.value,selectedCase:e.chooseCase?e.case:null}))};
+ a.answers.find(x=>x.id==='L7.4.5').value='gėlė';a.answers.find(x=>x.id==='L7.3.2').value='dėže';a.answers.find(x=>x.id==='L7.3.4').value='parduotuvėja';
+ const r=G.evaluate(a,k,l.cases,l.words);assert.equal(r.formScore.correct,45);assert.equal(r.checks.find(x=>x.id==='L7.4.5').feedback.type,'different-form');assert.equal(r.checks.find(x=>x.id==='L7.3.2').feedback.type,'different-form');assert.equal(r.checks.find(x=>x.id==='L7.3.4').feedback.type,'form');assert(G.caseName('Įn.',l.cases).includes('орудний'));
+});
+test('new lessons translate all contextual sentences and introduce the complete -ė singular model',()=>{
+ for(const l of lessons.filter(l=>l.number>=6)){
+  assert(l.cases.every(c=>c.uk));assert.equal(l.minutes,l.sections.reduce((sum,s)=>sum+s.minutes,0));assert(l.sections.some(s=>s.kind==='picture'));
+  for(const s of l.sections)for(const q of s.questions||[])if(q.sentence){assert(q.translation&&q.translationUk,q.id);assert(keys[`${l.id}:v${l.version}`].answers[q.id].rule,q.id);}
+ }
+ const l=lessons.find(l=>l.id==='L07-E-SG');assert.deepEqual(l.sections.find(s=>s.id==='reference').models[0].rows.map(r=>r.example),['gėlė','gėlės','gėlei','gėlę','gėle','gėlėje','gėle']);
+});

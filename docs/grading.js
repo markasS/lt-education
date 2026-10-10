@@ -2,16 +2,16 @@
 (function(root){
  'use strict';
  const CODES=['V.','K.','N.','G.','Įn.','Vt.','Š.'];
- const ENDINGS={'-as':{sg:['as','o','ui','ą','u','e','e'],pl:['ai','ų','ams','us','ais','uose','ai']},'-a':{sg:['a','os','ai','ą','a','oje','a'],pl:['os','ų','oms','as','omis','ose','os']}};
+ const ENDINGS={'-as':{sg:['as','o','ui','ą','u','e','e'],pl:['ai','ų','ams','us','ais','uose','ai']},'-a':{sg:['a','os','ai','ą','a','oje','a'],pl:['os','ų','oms','as','omis','ose','os']},'-ė':{sg:['ė','ės','ei','ę','e','ėje','e']}};
  const normalize=s=>String(s??'').normalize('NFC').trim().toLocaleLowerCase('lt');
  const form=(word,model,number,code)=>word.slice(0,-(model.length-1))+ENDINGS[model][number][CODES.indexOf(code)];
- const caseName=(code,cases)=>{const c=cases.find(c=>c.code===code);return c?`${c.code} ${c.lt} / ${c.ru.toLowerCase()}`:String(code||'не выбран');};
+ const caseName=(code,cases)=>{const c=cases.find(c=>c.code===code);return c?`${c.code} ${c.lt} / ${c.ru.toLowerCase()}${c.uk?' / '+c.uk.toLowerCase():''}`:String(code||'не выбран');};
  function formFeedback(answer,expected,cases,words){
   const actual=normalize(answer.value),correct=normalize(expected.value);
   if(!actual)return {type:'missing',text:'Форма не записана.'};
   // Only describe a recognizable form; never label the learner's intent.
   const other=[];
-  for(const number of ['sg','pl'])for(const code of CODES)if(form(expected.word,expected.model,number,code)===actual)other.push(`${caseName(code,cases)}, ${number==='sg'?'единственное':'множественное'} число`);
+  for(const number of Object.keys(ENDINGS[expected.model]))for(const code of CODES)if(form(expected.word,expected.model,number,code)===actual)other.push(`${caseName(code,cases)}, ${number==='sg'?'единственное':'множественное'} число`);
   if(other.length)return {type:'different-form',text:`Написанная форма соответствует: ${other.join('; ')}.`};
   for(const [word,translation] of Object.entries(words||{}))if(word!==expected.word&&word.endsWith(expected.model.slice(1))&&form(word,expected.model,expected.number,expected.case)===actual)return {type:'different-word',text:`Это форма слова ${word} (${translation}); в задании требуется ${expected.word}.`};
   const differences=[...correct].map((c,i)=>[c,[...actual][i]]).filter(([a,b])=>a!==b);

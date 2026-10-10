@@ -4,6 +4,11 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&
 let names = [];
 const numberName = n => n === 'pl' ? 'Множественное число / daugiskaita' : 'Единственное число / vienaskaita';
 const HISTORY_KEY = 'lt-grammar:attempts:v1';
+const lessonNumber = l => l.number || lessons.findIndex(item=>item.id===l.id)+1;
+const lessonLabel = l => lessonNumber(l)>0 ? `Занятие №${lessonNumber(l)}` : 'Занятие';
+const caseTranslations = c => `${c.ru}${c.uk?' / '+c.uk:''}`;
+const exportCases = () => lesson.cases.map(({code,lt,ru,uk})=>({code,lt,ru,...(uk?{uk}:{})}));
+const sentenceTranslations = q => q.translationUk ? `<div class="sentence-translations"><p lang="ru"><span>RU</span> ${esc(q.translation)}</p><p lang="uk"><span>UA</span> ${esc(q.translationUk)}</p></div>` : q.translation ? `<p class="translation" lang="ru">${esc(q.translation)}</p>` : '';
 let lessons = [], lesson, draft, step = 0, lastInput, openedAt, storageBlocked = false;
 let answerKeys = {}, practice = null, shownReport = null;
 function key() { return `lt-grammar:draft:${lesson.id}:v${lesson.version}`; }
@@ -47,7 +52,7 @@ function input(id, label, cls='answer-field') {
   return `<input class="${cls}" id="answer-${esc(id)}" data-id="${esc(id)}" data-field="value" aria-label="${esc(label)}" value="${esc(value(id))}" autocomplete="off" autocapitalize="none" spellcheck="false" ${locked() ? 'disabled' : ''}>`;
 }
 function caseSelect(q, allowed) {
-  return `<select class="case-field" data-id="${esc(q.id)}" data-field="case" aria-label="Падеж для задания ${esc(q.id)}" ${locked() ? 'disabled' : ''}><option value="">Выберите падеж</option>${lesson.cases.filter(c => !allowed || allowed.includes(c.code)).map(c => `<option value="${esc(c.code)}" ${answerState(q.id).case === c.code ? 'selected' : ''}>${esc(c.code)} ${esc(c.lt)} — ${esc(c.ru.toLowerCase())}</option>`).join('')}</select>`;
+  return `<select class="case-field" data-id="${esc(q.id)}" data-field="case" aria-label="Падеж для задания ${esc(q.id)}" ${locked() ? 'disabled' : ''}><option value="">Выберите падеж</option>${lesson.cases.filter(c => !allowed || allowed.includes(c.code)).map(c => `<option value="${esc(c.code)}" ${answerState(q.id).case === c.code ? 'selected' : ''}>${esc(c.code)} ${esc(c.lt)} — ${esc(caseTranslations(c).toLowerCase())}</option>`).join('')}</select>`;
 }
 function answerControl(q) {
   if (!q.options) return input(q.id, `Форма для ${q.id}`);
@@ -57,8 +62,9 @@ function question(q, allowed) {
   const c = lesson.cases.find(c => c.code === q.case);
   const base = q.prompt || `${q.word} (${lesson.words[q.word]})`;
   const choices = q.wordOptions ? `<p class="word-options">Слова: ${q.wordOptions.map(w=>`<span lang="lt">${esc(w)}</span> — ${esc(lesson.words[w])}`).join(' / ')}</p>` : '';
-  const prompt = q.chooseCase ? q.sentence : `${base} → ${c.ru} / ${c.lt} (${c.code})`;
-  return `<div class="question"><label class="main-label" for="answer-${esc(q.id)}"><span class="id">${esc(q.id)}</span><span>${esc(prompt)}</span></label>${choices}<p class="translation">${esc(numberName(q.number))} · модель ${esc(q.model)}${q.translation ? ' · '+esc(q.translation) : ''}</p><div class="answer-line">${answerControl(q)}${q.chooseCase ? caseSelect(q,allowed) : ''}</div></div>`;
+  const prompt = q.chooseCase ? q.sentence : `${base} → ${caseTranslations(c)} / ${c.lt} (${c.code})`;
+  const translations=sentenceTranslations(q);
+  return `<div class="question"><label class="main-label" for="answer-${esc(q.id)}"><span class="id">${esc(q.id)}</span><span>${esc(prompt)}</span></label>${choices}<p class="translation">${esc(numberName(q.number))} · модель ${esc(q.model)}</p>${translations}<div class="answer-line">${answerControl(q)}${q.chooseCase ? caseSelect(q,allowed) : ''}</div></div>`;
 }
 function renderSection(section) {
   let html = intro(esc(section.title),`Около ${section.minutes} минут`,esc(section.instruction));
@@ -66,10 +72,11 @@ function renderSection(section) {
     html += `<figure class="picture-task"><a href="${esc(section.image.src)}" target="_blank" rel="noopener" aria-label="Открыть комикс крупнее"><img src="${esc(section.image.src)}" alt="${esc(section.image.alt)}" width="1536" height="1024"></a><figcaption>Кадры A–D. Нажмите на картинку, чтобы открыть её крупнее.</figcaption></figure><details class="hint-details"><summary>Текстовое описание картинки</summary><p>${esc(section.image.description)}</p></details>`;
     html += section.questions.map(q=>question(q,section.caseCodes)).join('');
   } else if (section.kind === 'reference') {
-    html += section.models.map(model => `<h3>${esc(model.label)}</h3><div class="table-scroll"><table class="reference-table"><thead><tr><th>Падеж</th><th>Вопрос</th><th>Окончание</th><th>Образец</th></tr></thead><tbody>${model.rows.map(c => `<tr><td><span lang="lt">${esc(c.code)} ${esc(c.lt)}</span><small>${esc(c.ru)}</small></td><td>${esc(c.question)}</td><td>${esc(c.ending)}</td><td lang="lt">${esc(c.example)}</td></tr>`).join('')}</tbody></table></div>`).join('');
+    html += (section.cards||[]).map(card=>`<div class="rule-card"><h3>${esc(card.title)}</h3><p>${esc(card.text)}</p></div>`).join('');
+    html += section.models.map(model => `<h3>${esc(model.label)}</h3><div class="table-scroll"><table class="reference-table"><thead><tr><th>Падеж</th><th>Вопрос</th><th>Окончание</th><th>Образец</th></tr></thead><tbody>${model.rows.map(c => `<tr><td><span lang="lt">${esc(c.code)} ${esc(c.lt)}</span><small lang="ru">${esc(c.ru)}</small>${c.uk?`<small lang="uk">${esc(c.uk)}</small>`:''}</td><td>${esc(c.question)}</td><td>${esc(c.ending)}</td><td lang="lt">${esc(c.example)}</td></tr>`).join('')}</tbody></table></div>`).join('');
     if(section.note) html += `<p>${esc(section.note)}</p>`;
   } else if (section.kind === 'table') {
-    html += `<p class="translation">${esc(numberName(section.number))} · модель ${esc(section.model)}</p><div class="table-scroll"><table class="exercise-table"><thead><tr><th>Падеж</th>${section.words.map(w => `<th lang="lt">${esc(w)}<small lang="ru">${esc(lesson.words[w])}</small></th>`).join('')}</tr></thead><tbody>${section.caseCodes.map((code,i) => {const c=lesson.cases.find(c=>c.code===code);return `<tr><td>${i+1}. ${esc(c.code)} <span lang="lt">${esc(c.lt)}</span><small>${esc(c.ru)}</small></td>${section.words.map(w => `<td>${input(`${section.prefix}.${i+1}.${w}`,`${w}: ${c.ru} / ${c.lt}`)}</td>`).join('')}</tr>`;}).join('')}</tbody></table></div>`;
+    html += `<p class="translation">${esc(numberName(section.number))} · модель ${esc(section.model)}</p><div class="table-scroll"><table class="exercise-table"><thead><tr><th>Падеж</th>${section.words.map(w => `<th lang="lt">${esc(w)}<small lang="ru">${esc(lesson.words[w])}</small></th>`).join('')}</tr></thead><tbody>${section.caseCodes.map((code,i) => {const c=lesson.cases.find(c=>c.code===code);return `<tr><td>${i+1}. ${esc(c.code)} <span lang="lt">${esc(c.lt)}</span><small lang="ru">${esc(c.ru)}</small>${c.uk?`<small lang="uk">${esc(c.uk)}</small>`:''}</td>${section.words.map(w => `<td>${input(`${section.prefix}.${i+1}.${w}`,`${w}: ${caseTranslations(c)} / ${c.lt}`)}</td>`).join('')}</tr>`;}).join('')}</tbody></table></div>`;
   } else html += section.questions.map(q=>question(q,section.caseCodes)).join('');
   return html;
 }
@@ -88,7 +95,7 @@ function render() {
   $('content').innerHTML = lockedNotice + html;
   $('previous').disabled = step === 0;
   $('next').hidden = step === names.length - 1;
-  updateProgress(); renderHistory();
+  updateProgress(); renderHistory(); renderCourseProgress();
 }
 function updateProgress() {
   const total = practicing() ? practice.round.ids.length : allQuestions().length;
@@ -102,15 +109,24 @@ function history() {
   if (!Array.isArray(h)) { storageBlocked = true; showError('История имеет неизвестный формат. Скачайте текущие ответы; сохранённая история не будет перезаписана.'); return []; }
   return h;
 }
+function renderCourseProgress() {
+  const completed=new Set(history().filter(a=>a.status==='completed').map(a=>a.lesson.id));
+  const total=lessons.filter(l=>completed.has(l.id)).length;
+  $('course-progress').innerHTML=`<p>Завершено занятий: <strong>${total} / ${lessons.length}</strong></p><div class="course-path">${lessons.map(l=>`<button class="${completed.has(l.id)?'done':''}" data-open-lesson="${esc(l.id)}" aria-label="${esc(lessonLabel(l))}${completed.has(l.id)?', завершено':''}" ${lesson.id===l.id?'aria-current="true"':''}>${lessonNumber(l)}${completed.has(l.id)?'<span aria-hidden="true">✓</span>':''}</button>`).join('')}</div>`;
+}
+function achievements(a,report,p) {
+  const corrected=p?.rounds.some(round=>round.evaluation?.incorrectIds.length===0);
+  return `<div class="achievements" aria-label="Отметки за занятие"><span>✓ Практика завершена</span>${report.incorrectIds.length===0?'<span>★ Все ответы верны</span>':''}${corrected?'<span>✓ Ошибки исправлены</span>':''}</div>`;
+}
 function renderHistory() {
   const h = history();
   $('history').innerHTML = h.length ? h.slice().reverse().map(a => {
     const report=reportFor(a);
-    return `<div class="history-entry"><button class="secondary" data-view-attempt="${esc(a.attemptId)}">${esc(a.lesson.day)} · ${esc(a.lesson.title)}<br>${new Date(a.completedAt).toLocaleDateString('ru-RU')}${report ? ` · ${report.formScore.correct}/${report.formScore.total} форм` : ''} · отчёт</button></div>`;
+    return `<div class="history-entry"><button class="secondary" data-view-attempt="${esc(a.attemptId)}">${esc(lessonLabel(a.lesson))} · ${esc(a.lesson.title)}<br>${new Date(a.completedAt).toLocaleDateString('ru-RU')}${report ? ` · ${report.formScore.correct}/${report.formScore.total} форм` : ''} · отчёт</button></div>`;
   }).join('') + '<button id="download-all" class="secondary">Скачать все результаты</button>' : '<p>Здесь появятся отчёты завершённых занятий.</p>';
 }
 function makeExport(completed=false) {
-  return {schemaVersion:3,attemptId:draft.attemptId,lesson:{id:lesson.id,version:lesson.version,title:lesson.title,topic:lesson.topic,week:lesson.week,day:lesson.day},status:completed?'completed':'draft',startedAt:draft.startedAt,completedAt:completed?new Date().toISOString():null,exportedAt:new Date().toISOString(),elapsedSeconds:elapsed(),durationNote:'Время открытой страницы, включая возможные паузы; не показатель скорости.',cases:lesson.cases.map(({code,lt,ru})=>({code,lt,ru})),answers:allQuestions().map(q=>({id:q.id,section:q.section,prompt:q.prompt,instruction:q.instruction,word:q.word||null,requestedCase:q.requestedCase,requestedNumber:q.number,model:q.model,caseSelectionRequired:q.chooseCase,...(q.options?{formOptions:q.options}:{}),...(q.wordOptions?{wordOptions:q.wordOptions}:{}),...(q.imageContext?{imageContext:q.imageContext,panel:q.panel}:{}),value:value(q.id),selectedCase:answerState(q.id).case||null})),filledForms:count(),totalForms:allQuestions().length,evaluation:null};
+  return {schemaVersion:3,attemptId:draft.attemptId,lesson:{id:lesson.id,version:lesson.version,title:lesson.title,topic:lesson.topic,week:lesson.week,...(lesson.day?{day:lesson.day}:{}),number:lessonNumber(lesson)},status:completed?'completed':'draft',startedAt:draft.startedAt,completedAt:completed?new Date().toISOString():null,exportedAt:new Date().toISOString(),elapsedSeconds:elapsed(),durationNote:'Время открытой страницы, включая возможные паузы; не показатель скорости.',cases:exportCases(),answers:allQuestions().map(q=>({id:q.id,section:q.section,prompt:q.prompt,instruction:q.instruction,word:q.word||null,requestedCase:q.requestedCase,requestedNumber:q.number,model:q.model,caseSelectionRequired:q.chooseCase,...(q.translation?{translation:q.translation}:{}),...(q.translationUk?{translationUk:q.translationUk}:{}),...(q.options?{formOptions:q.options}:{}),...(q.wordOptions?{wordOptions:q.wordOptions}:{}),...(q.imageContext?{imageContext:q.imageContext,panel:q.panel}:{}),value:value(q.id),selectedCase:answerState(q.id).case||null})),filledForms:count(),totalForms:allQuestions().length,evaluation:null};
 }
 function download(data) {
   const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}));
@@ -127,7 +143,7 @@ function switchLesson(id) {
   if (!draft || typeof draft.answers!=='object' || !draft.reflection || !Number.isFinite(draft.elapsedMs)) { storageBlocked=true; draft=fresh; showError('Черновик имеет неизвестный формат. Автосохранение отключено, чтобы не перезаписать старые данные. Можно скачать новые ответы.'); }
   step=Number.isInteger(draft.step)&&draft.step>=0&&draft.step<names.length?draft.step:0;
   $('lesson-title').textContent=lesson.title; $('lesson-subtitle').textContent=lesson.subtitle;
-  $('lesson-meta').textContent=`НЕДЕЛЯ ${lesson.week} · ${lesson.day.toLocaleUpperCase('ru-RU')}`;
+  $('lesson-meta').textContent=lessonLabel(lesson).toLocaleUpperCase('ru-RU');
   $('lesson-picker').value=id;
   $('duration-minutes').textContent=`≈ ${lesson.minutes} минут`;
   render(); if (!draft.completed) save();
@@ -149,6 +165,7 @@ $('letters').addEventListener('pointerdown',e=>{if(e.target.closest('button'))e.
 document.addEventListener('click',e=>{
   const button=e.target.closest('button'); if(!button)return;
   if(button.dataset.step)go(Number(button.dataset.step));
+  if(button.dataset.openLesson){switchLesson(button.dataset.openLesson);$('main').scrollIntoView({behavior:'auto',block:'start'});}
   if(button.id==='next')go(step+1);
   if(button.id==='previous')go(step-1);
   if(button.dataset.letter && lastInput?.isConnected && !lastInput.disabled){const start=lastInput.selectionStart,end=lastInput.selectionEnd; lastInput.setRangeText(button.dataset.letter,start,end,'end');lastInput.focus();lastInput.dispatchEvent(new Event('input',{bubbles:true}));}
@@ -186,7 +203,7 @@ window.addEventListener('storage',e=>{if(lesson&&(e.key===key() || practice&&e.k
 Promise.all(['./lessons.json','./answer-keys.json'].map(url=>fetch(url).then(r=>{if(!r.ok)throw Error();return r.json();}))).then(([data,keys])=>{
   answerKeys=keys.keys;
   lessons=data.lessons;if(!Array.isArray(lessons)||!lessons.length)throw Error();
-  $('lesson-picker').innerHTML=lessons.map(l=>`<option value="${esc(l.id)}">Неделя ${l.week} · ${esc(l.day)}</option>`).join('');switchLesson(lessons[0].id);
+  $('lesson-picker').innerHTML=lessons.map(l=>`<option value="${esc(l.id)}">${esc(lessonLabel(l))} · ${esc(l.title)}</option>`).join('');switchLesson(lessons[0].id);
 }).catch(()=>{showError('Не удалось загрузить задания. Проверьте соединение и обновите страницу.');$('save-status').textContent='Занятие не загружено';$('next').disabled=true;});
 
 function keyFor(a) { return answerKeys[`${a.lesson.id}:v${a.lesson.version}`]; }
@@ -203,7 +220,7 @@ function sourceAttempt(id) {
 }
 function caseLabel(code,a) { return LTGrading.caseName(code,a.cases||lesson.cases); }
 function errorCards(report,a) {
-  return report.checks.filter(c=>!c.formCorrect||c.caseCorrect===false).map(c=>`<article class="feedback-card"><h3>${esc(c.id)} · ${esc(c.prompt)}</h3><p class="translation">${esc(numberName(c.number))} · модель ${esc(c.model)}${c.chooseCase?'':` · ${esc(caseLabel(c.expectedCase,a))}`}</p><div class="answer-comparison"><div><small>Ваш ответ</small><strong lang="lt">${esc(c.actual||'—')}</strong></div><div><small>Правильно</small><strong lang="lt">${esc(c.expected)}</strong></div></div><p class="${c.formCorrect?'success-text':'error-text'}">${c.formCorrect?'Форма правильная.':esc(c.feedback.text)}</p>${c.chooseCase?`<p class="${c.caseCorrect?'success-text':'error-text'}">${c.caseCorrect?'Падеж выбран правильно: ':c.selectedCase?'Выбран '+esc(caseLabel(c.selectedCase,a))+'. Нужен: ':'Падеж не выбран. Нужен: '}${esc(caseLabel(c.expectedCase,a))}.</p>`:''}<p class="feedback-rule">${esc(c.rule)}<br>${esc(c.word)} → <strong lang="lt">${esc(c.expected)}</strong>; ${esc(caseLabel(c.expectedCase,a))}, ${c.number==='pl'?'множественное':'единственное'} число, окончание <strong>${esc(c.ending)}</strong>.</p></article>`).join('');
+  return report.checks.filter(c=>!c.formCorrect||c.caseCorrect===false).map(c=>`<article class="feedback-card"><h3>${esc(c.id)} · ${esc(c.prompt)}</h3>${sentenceTranslations(a.answers.find(q=>q.id===c.id)||{})}<p class="translation">${esc(numberName(c.number))} · модель ${esc(c.model)}${c.chooseCase?'':` · ${esc(caseLabel(c.expectedCase,a))}`}</p><div class="answer-comparison"><div><small>Ваш ответ</small><strong lang="lt">${esc(c.actual||'—')}</strong></div><div><small>Правильно</small><strong lang="lt">${esc(c.expected)}</strong></div></div><p class="${c.formCorrect?'success-text':'error-text'}">${c.formCorrect?'Форма правильная.':esc(c.feedback.text)}</p>${c.chooseCase?`<p class="${c.caseCorrect?'success-text':'error-text'}">${c.caseCorrect?'Падеж выбран правильно: ':c.selectedCase?'Выбран '+esc(caseLabel(c.selectedCase,a))+'. Нужен: ':'Падеж не выбран. Нужен: '}${esc(caseLabel(c.expectedCase,a))}.</p>`:''}<p class="feedback-rule">${esc(c.rule)}<br>${esc(c.word)} → <strong lang="lt">${esc(c.expected)}</strong>; ${esc(caseLabel(c.expectedCase,a))}, ${c.number==='pl'?'множественное':'единственное'} число, окончание <strong>${esc(c.ending)}</strong>.</p></article>`).join('');
 }
 function practiceFor(a) { return practice?.source?.attemptId===a.attemptId ? practice : readStorage(practiceKey(a.attemptId),null); }
 function recommendations(report,a) {
@@ -215,7 +232,8 @@ function recommendations(report,a) {
 }
 function reportActions(a,report,inDialog=false) {
   const supported=!!keyFor(a)&&lessons.some(l=>l.id===a.lesson.id&&l.version===a.lesson.version);
-  return `<div class="finished-actions">${report?.incorrectIds.length&&supported?`<button data-report-action="repeat" data-source="${esc(a.attemptId)}">Повторить ошибки (${report.incorrectIds.length})</button>`:''}${report?`<button class="secondary" data-report-action="copy" data-source="${esc(a.attemptId)}">Скопировать краткий отчёт</button><button class="secondary" data-report-action="text" data-source="${esc(a.attemptId)}">Скачать отчёт текстом</button>`:''}<button class="secondary" data-report-action="json" data-source="${esc(a.attemptId)}">Скачать ответы и оценку</button>${!inDialog&&a.attemptId===draft.completedAttempt?.attemptId?'<button id="new-attempt" class="secondary">Новая попытка</button>':''}</div><p class="report-action-status" role="status"></p>`;
+  const next=lessons[lessons.findIndex(l=>l.id===a.lesson.id)+1];
+  return `<div class="finished-actions">${report?.incorrectIds.length&&supported?`<button data-report-action="repeat" data-source="${esc(a.attemptId)}">Повторить ошибки (${report.incorrectIds.length})</button>`:''}${report?`<button class="secondary" data-report-action="copy" data-source="${esc(a.attemptId)}">Скопировать краткий отчёт</button><button class="secondary" data-report-action="text" data-source="${esc(a.attemptId)}">Скачать отчёт текстом</button>`:''}<button class="secondary" data-report-action="json" data-source="${esc(a.attemptId)}">Скачать ответы и оценку</button>${!inDialog&&a.attemptId===draft.completedAttempt?.attemptId?`<button id="new-attempt" class="secondary">Новая попытка</button>${next?`<button class="secondary" data-open-lesson="${esc(next.id)}">К занятию №${lessonNumber(next)}</button>`:''}`:''}</div><p class="report-action-status" role="status"></p>`;
 }
 function renderReport(a,inDialog=false) {
   const report=reportFor(a);
@@ -223,14 +241,14 @@ function renderReport(a,inDialog=false) {
   if(!report)return heading+'<p>Для этой версии занятия нет проверочного ключа. Первоначальные ответы доступны для скачивания.</p>'+reportActions(a,null,inDialog);
   const p=practiceFor(a),rounds=p?.rounds||[];
   const extra=rounds.length?`<p class="practice-note">Повторение: ${rounds.map((r,i)=>`раунд ${i+1} — ${r.evaluation.fullyCorrect}/${r.evaluation.checks.length}`).join('; ')}. Первоначальная оценка сохранена.</p>`:'';
-  return heading+`<div class="summary"><div><strong>${report.formScore.correct} / ${report.formScore.total}</strong><span>правильных форм</span></div>${report.caseScore.total?`<div><strong>${report.caseScore.correct} / ${report.caseScore.total}</strong><span>правильно выбранных падежей</span></div>`:''}</div><p>${report.incorrectIds.length?`В ${report.incorrectIds.length} заданиях есть ошибка или пропуск. Форма и выбор падежа проверяются отдельно.`:'Все задания выполнены правильно.'}</p><div class="model-results">${report.groups.map(g=>`<span>${esc(g.model)} · ${g.number==='pl'?'мн. ч.':'ед. ч.'}: <strong>${g.correct}/${g.total}</strong></span>`).join('')}</div>${extra}${recommendations(report,a)}${errorCards(report,a)}<details class="all-answers"><summary>Все ответы (${report.checks.length})</summary><div class="table-scroll"><table class="reference-table"><thead><tr><th>№</th><th>Ваш ответ</th><th>Правильно</th><th>Падеж</th></tr></thead><tbody>${report.checks.map(c=>`<tr><td>${esc(c.id)}</td><td class="${c.formCorrect?'success-text':'error-text'}">${esc(c.actual||'—')}</td><td lang="lt">${esc(c.expected)}</td><td>${c.chooseCase?`${esc(c.selectedCase||'—')} → `:''}${esc(caseLabel(c.expectedCase,a))}</td></tr>`).join('')}</tbody></table></div></details>${reportActions(a,report,inDialog)}`;
+  return heading+achievements(a,report,p)+`<div class="summary"><div><strong>${report.formScore.correct} / ${report.formScore.total}</strong><span>правильных форм</span></div>${report.caseScore.total?`<div><strong>${report.caseScore.correct} / ${report.caseScore.total}</strong><span>правильно выбранных падежей</span></div>`:''}</div><p>${report.incorrectIds.length?`В ${report.incorrectIds.length} заданиях есть ошибка или пропуск. Форма и выбор падежа проверяются отдельно.`:'Все задания выполнены правильно.'}</p><div class="model-results">${report.groups.map(g=>`<span>${esc(g.model)} · ${g.number==='pl'?'мн. ч.':'ед. ч.'}: <strong>${g.correct}/${g.total}</strong></span>`).join('')}</div>${extra}${recommendations(report,a)}${errorCards(report,a)}<details class="all-answers"><summary>Все ответы (${report.checks.length})</summary><div class="table-scroll"><table class="reference-table"><thead><tr><th>№</th><th>Ваш ответ</th><th>Правильно</th><th>Падеж</th></tr></thead><tbody>${report.checks.map(c=>`<tr><td>${esc(c.id)}</td><td class="${c.formCorrect?'success-text':'error-text'}">${esc(c.actual||'—')}</td><td lang="lt">${esc(c.expected)}</td><td>${c.chooseCase?`${esc(c.selectedCase||'—')} → `:''}${esc(caseLabel(c.expectedCase,a))}</td></tr>`).join('')}</tbody></table></div></details>${reportActions(a,report,inDialog)}`;
 }
 function plainReport(a,full=false) {
   const r=reportFor(a);if(!r)return `${a.lesson.title}: автоматическая проверка этой версии недоступна.`;
-  const lines=[`${a.lesson.day}: ${a.lesson.title}`,`Первоначальная попытка: ${r.formScore.correct}/${r.formScore.total} форм${r.caseScore.total?`; падежи ${r.caseScore.correct}/${r.caseScore.total}`:''}.`];
+  const lines=[`${lessonLabel(a.lesson)}: ${a.lesson.title}`,`Первоначальная попытка: ${r.formScore.correct}/${r.formScore.total} форм${r.caseScore.total?`; падежи ${r.caseScore.correct}/${r.caseScore.total}`:''}.`];
   for(const c of r.checks.filter(c=>!c.formCorrect||c.caseCorrect===false)){
     lines.push(`${c.id}. ${c.prompt}`,`Ответ: ${c.actual||'пропуск'} → ${c.expected}. ${c.chooseCase?`Падеж: ${c.selectedCase||'не выбран'} → ${c.expectedCase}.`:''}`);
-    if(full)lines.push(c.rule,`${caseLabel(c.expectedCase,a)}, ${c.number==='pl'?'множественное':'единственное'} число, окончание ${c.ending}.`,c.feedback?.text||'Форма верна.');
+    if(full){const q=a.answers.find(q=>q.id===c.id);if(q?.translation)lines.push('RU: '+q.translation);if(q?.translationUk)lines.push('UA: '+q.translationUk);lines.push(c.rule,`${caseLabel(c.expectedCase,a)}, ${c.number==='pl'?'множественное':'единственное'} число, окончание ${c.ending}.`,c.feedback?.text||'Форма верна.');}
   }
   if(!r.incorrectIds.length)lines.push('Ошибок нет.');
   const p=practiceFor(a);if(p?.rounds.length)lines.push('Повторение (отдельно от первоначального балла): '+p.rounds.map((r,i)=>`раунд ${i+1}: ${r.evaluation.fullyCorrect}/${r.evaluation.checks.length}`).join('; '));
@@ -268,14 +286,14 @@ function startPractice(a) {
 }
 function practiceAttempt() {
   const ids=new Set(practice.round.ids);
-  return {attemptId:practice.round.roundId,sourceAttemptId:practice.source.attemptId,lesson:{...practice.source.lesson},cases:lesson.cases.map(({code,lt,ru})=>({code,lt,ru})),status:'practice',startedAt:practice.round.startedAt,completedAt:new Date().toISOString(),answers:allQuestions().filter(q=>ids.has(q.id)).map(q=>({id:q.id,prompt:q.prompt,section:q.section,word:q.word||null,requestedCase:q.case||null,requestedNumber:q.number,model:q.model,caseSelectionRequired:q.chooseCase,value:practice.round.answers[q.id]?.value||'',selectedCase:practice.round.answers[q.id]?.case||null}))};
+  return {attemptId:practice.round.roundId,sourceAttemptId:practice.source.attemptId,lesson:{...practice.source.lesson},cases:exportCases(),status:'practice',startedAt:practice.round.startedAt,completedAt:new Date().toISOString(),answers:allQuestions().filter(q=>ids.has(q.id)).map(q=>({id:q.id,prompt:q.prompt,section:q.section,word:q.word||null,requestedCase:q.case||null,requestedNumber:q.number,model:q.model,caseSelectionRequired:q.chooseCase,...(q.translation?{translation:q.translation}:{}),...(q.translationUk?{translationUk:q.translationUk}:{}),...(q.imageContext?{imageContext:q.imageContext,panel:q.panel}:{}),...(q.wordOptions?{wordOptions:q.wordOptions}:{}),value:practice.round.answers[q.id]?.value||'',selectedCase:practice.round.answers[q.id]?.case||null}))};
 }
 function renderPractice() {
   const original=reportFor(practice.source),round=practice.round;
   let html=intro('Повторение ошибок','','Это отдельная тренировка. Первоначальный результат остаётся прежним. Запишите ответы ещё раз, затем проверьте их.')+`<p class="practice-note">Первоначально: ${original.formScore.correct}/${original.formScore.total} форм. Сейчас повторяем ${round.ids.length} заданий.</p>`;
   if(round.checked){
     const r=round.result.evaluation;
-    return html+`<div class="summary"><div><strong>${r.fullyCorrect} / ${r.checks.length}</strong><span>заданий исправлено полностью</span></div></div>${r.incorrectIds.length?errorCards(r,practice.source):'<p class="success-text">Все задания этого раунда выполнены правильно.</p>'}<div class="finished-actions">${r.incorrectIds.length?`<button id="next-practice">Повторить оставшиеся (${r.incorrectIds.length})</button>`:'<button id="restart-practice" class="secondary">Повторить ещё раз</button>'}<button id="back-to-result" class="secondary">К первоначальному результату</button></div>`;
+    return html+`<div class="summary"><div><strong>${r.fullyCorrect} / ${r.checks.length}</strong><span>заданий исправлено полностью</span></div></div>${r.incorrectIds.length?errorCards(r,practice.source):'<p class="success-text">Все задания этого раунда выполнены правильно.</p><div class="achievements"><span>✓ Ошибки исправлены</span></div>'}<div class="finished-actions">${r.incorrectIds.length?`<button id="next-practice">Повторить оставшиеся (${r.incorrectIds.length})</button>`:'<button id="restart-practice" class="secondary">Повторить ещё раз</button>'}<button id="back-to-result" class="secondary">К первоначальному результату</button></div>`;
   }
   const qs=allQuestions().filter(q=>round.ids.includes(q.id)),image=qs.find(q=>q.imageContext)?.imageContext;
   if(image)html+=`<figure class="picture-task"><a href="${esc(image.src)}" target="_blank" rel="noopener"><img src="${esc(image.src)}" alt="${esc(image.alt)}" width="1536" height="1024"></a><figcaption>Картинка для повторения. Нажмите, чтобы открыть крупнее.</figcaption></figure>`;

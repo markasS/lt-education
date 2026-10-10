@@ -3266,6 +3266,1358 @@
           ]
         }
       ]
+    },
+    {
+      "id": "L06-AS-A-REVIEW",
+      "number": 6,
+      "version": 1,
+      "title": "-as и -a: выбираем падеж уверенно",
+      "subtitle": "Две модели · оба числа · новые ситуации и комикс",
+      "topic": "Закрепление -as/-a в обоих числах; управление ieškoti, выбор падежа, -oje и основа kaimyn-",
+      "week": 2,
+      "minutes": 55,
+      "words": {
+        "namas": "дом",
+        "stalas": "стол",
+        "parkas": "парк",
+        "tiltas": "мост",
+        "miestas": "город",
+        "draugas": "друг",
+        "darbas": "работа",
+        "sodas": "сад",
+        "butas": "квартира",
+        "langas": "окно",
+        "studentas": "студент",
+        "telefonas": "телефон",
+        "planas": "план",
+        "bilietas": "билет",
+        "kaimynas": "сосед",
+        "autobusas": "автобус",
+        "lagaminas": "чемодан",
+        "bankas": "банк",
+        "teatras": "театр",
+        "vaikas": "ребёнок",
+        "knyga": "книга",
+        "mokykla": "школа",
+        "mašina": "машина",
+        "dovana": "подарок",
+        "diena": "день",
+        "šeima": "семья",
+        "mama": "мама",
+        "dukra": "дочь",
+        "ranka": "рука",
+        "lenta": "доска",
+        "vieta": "место",
+        "naujiena": "новость",
+        "spinta": "шкаф",
+        "kuprinė": "рюкзак",
+        "katė": "кошка",
+        "gėlė": "цветок",
+        "gatvė": "улица",
+        "dėžė": "коробка",
+        "parduotuvė": "магазин",
+        "kėdė": "стул",
+        "žvakė": "свеча"
+      },
+      "cases": [
+        {
+          "code": "V.",
+          "lt": "Vardininkas",
+          "ru": "Именительный",
+          "question": "kas?",
+          "ending": "-as",
+          "example": "namas",
+          "uk": "Називний"
+        },
+        {
+          "code": "K.",
+          "lt": "Kilmininkas",
+          "ru": "Родительный",
+          "question": "ko?",
+          "ending": "-o",
+          "example": "namo",
+          "uk": "Родовий"
+        },
+        {
+          "code": "N.",
+          "lt": "Naudininkas",
+          "ru": "Дательный",
+          "question": "kam?",
+          "ending": "-ui",
+          "example": "namui",
+          "uk": "Давальний"
+        },
+        {
+          "code": "G.",
+          "lt": "Galininkas",
+          "ru": "Винительный",
+          "question": "ką?",
+          "ending": "-ą",
+          "example": "namą",
+          "uk": "Знахідний"
+        },
+        {
+          "code": "Įn.",
+          "lt": "Įnagininkas",
+          "ru": "Творительный",
+          "question": "kuo?",
+          "ending": "-u",
+          "example": "namu",
+          "uk": "Орудний"
+        },
+        {
+          "code": "Vt.",
+          "lt": "Vietininkas",
+          "ru": "Местный",
+          "question": "kur?",
+          "ending": "-e",
+          "example": "name",
+          "uk": "Місцевий"
+        },
+        {
+          "code": "Š.",
+          "lt": "Šauksmininkas",
+          "ru": "Звательный",
+          "question": "обращение",
+          "ending": "-e",
+          "example": "name",
+          "uk": "Кличний"
+        }
+      ],
+      "sections": [
+        {
+          "id": "retrieval",
+          "title": "Разминка: знакомые формы",
+          "minutes": 6,
+          "instruction": "Без памятки. Короткое возвращение к двум моделям и двум числам. Падеж указан; впишите только форму.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "L6.1.1",
+              "word": "vieta",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Vt."
+            },
+            {
+              "id": "L6.1.2",
+              "word": "kaimynas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "Įn."
+            },
+            {
+              "id": "L6.1.3",
+              "word": "dovana",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "N."
+            },
+            {
+              "id": "L6.1.4",
+              "word": "bilietas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "K."
+            },
+            {
+              "id": "L6.1.5",
+              "word": "mama",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Š."
+            },
+            {
+              "id": "L6.1.6",
+              "word": "knyga",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "V."
+            }
+          ]
+        },
+        {
+          "id": "reference",
+          "title": "Три опоры перед практикой",
+          "minutes": 5,
+          "kind": "reference",
+          "instruction": "Прочитайте короткую памятку, затем переходите к заданиям. Новых моделей в этом занятии нет.",
+          "models": [],
+          "cards": [
+            {
+              "title": "Глагол помогает выбрать падеж",
+              "text": "Matau (вижу / бачу) → G. Galininkas, винительный / знахідний. Ieškau (ищу / шукаю) → K. Kilmininkas, родительный / родовий. Литовский падеж выбираем по литовскому глаголу."
+            },
+            {
+              "title": "Кому — и с кем",
+              "text": "Dėkoju (благодарю / дякую), padedu (помогаю / допомагаю) → N. Naudininkas, дательный / давальний. Su (с / з) и džiaugiuosi (радуюсь / радію) → Įn. Įnagininkas, творительный / орудний."
+            },
+            {
+              "title": "Два точных написания",
+              "text": "-a, единственное число, Vt. Vietininkas: -oje, например mokykloje. В слове kaimynas основа kaimyn- сохраняет y: kaimynui, kaimynams, kaimynais."
+            }
+          ]
+        },
+        {
+          "id": "pairs",
+          "title": "Одно слово — другая ситуация",
+          "minutes": 12,
+          "instruction": "В каждой паре одно существительное, но разные действия. Впишите форму и выберите падеж. Переводы передают смысл, а не литовское управление.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "L6.2.1",
+              "word": "knyga",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Vakare skaitau ___ (knyga).",
+              "translation": "Вечером я читаю книгу.",
+              "translationUk": "Увечері я читаю книжку."
+            },
+            {
+              "id": "L6.2.2",
+              "word": "knyga",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Lentynoje ieškau ___ (knyga).",
+              "translation": "На полке я ищу книгу.",
+              "translationUk": "На полиці я шукаю книжку."
+            },
+            {
+              "id": "L6.2.3",
+              "word": "draugas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Prie teatro matau ___ (draugas).",
+              "translation": "Возле театра я вижу друзей.",
+              "translationUk": "Біля театру я бачу друзів."
+            },
+            {
+              "id": "L6.2.4",
+              "word": "draugas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Prie teatro ieškau ___ (draugas).",
+              "translation": "Возле театра я ищу друзей.",
+              "translationUk": "Біля театру я шукаю друзів."
+            },
+            {
+              "id": "L6.2.5",
+              "word": "mašina",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Kieme plaunu ___ (mašina).",
+              "translation": "Во дворе я мою машины.",
+              "translationUk": "На подвір’ї я мию машини."
+            },
+            {
+              "id": "L6.2.6",
+              "word": "mašina",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Šiandien neturiu ___ (mašina).",
+              "translation": "Сегодня у меня нет машин.",
+              "translationUk": "Сьогодні в мене немає машин."
+            },
+            {
+              "id": "L6.2.7",
+              "word": "kaimynas",
+              "number": "sg",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Už pagalbą dėkoju ___ (kaimynas).",
+              "translation": "Я благодарю соседа за помощь.",
+              "translationUk": "Я дякую сусідові за допомогу."
+            },
+            {
+              "id": "L6.2.8",
+              "word": "kaimynas",
+              "number": "sg",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Apie sodą kalbu su ___ (kaimynas).",
+              "translation": "Я говорю с соседом о саде.",
+              "translationUk": "Я розмовляю із сусідом про сад."
+            },
+            {
+              "id": "L6.2.9",
+              "word": "dukra",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Pasakoju ___ (dukra) apie kelionę.",
+              "translation": "Я рассказываю дочерям о поездке.",
+              "translationUk": "Я розповідаю донькам про подорож."
+            },
+            {
+              "id": "L6.2.10",
+              "word": "dukra",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Į parką einu su ___ (dukra).",
+              "translation": "Я иду в парк с дочерьми.",
+              "translationUk": "Я йду до парку з доньками."
+            },
+            {
+              "id": "L6.2.11",
+              "word": "bilietas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Kuprinėje ieškau ___ (bilietas).",
+              "translation": "Я ищу билеты в рюкзаке.",
+              "translationUk": "Я шукаю квитки в рюкзаку."
+            },
+            {
+              "id": "L6.2.12",
+              "word": "bilietas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Džiaugiuosi naujais ___ (bilietas).",
+              "translation": "Я радуюсь новым билетам.",
+              "translationUk": "Я радію новим квиткам."
+            }
+          ]
+        },
+        {
+          "id": "locations",
+          "title": "Где это происходит?",
+          "minutes": 7,
+          "instruction": "В первых трёх заданиях выберите форму из списка, в остальных впишите её. Каждый раз определите падеж. Место и направление — разные ситуации.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "L6.3.1",
+              "word": "mokykla",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Vaikas mokosi ___ (mokykla).",
+              "translation": "Ребёнок учится в школе.",
+              "translationUk": "Дитина навчається в школі.",
+              "options": [
+                "mokykloja",
+                "mokykloje",
+                "mokyklą"
+              ]
+            },
+            {
+              "id": "L6.3.2",
+              "word": "mokykla",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Vaikas eina į ___ (mokykla).",
+              "translation": "Ребёнок идёт в школу.",
+              "translationUk": "Дитина йде до школи.",
+              "options": [
+                "mokykloje",
+                "mokyklos",
+                "mokyklą"
+              ]
+            },
+            {
+              "id": "L6.3.3",
+              "word": "mašina",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Kuprinė yra ___ (mašina).",
+              "translation": "Рюкзак находится в машине.",
+              "translationUk": "Рюкзак лежить у машині.",
+              "options": [
+                "mašinoje",
+                "mašinoja",
+                "mašiną"
+              ]
+            },
+            {
+              "id": "L6.3.4",
+              "word": "spinta",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Šiose ___ (spinta) laikome drabužius.",
+              "translation": "В этих шкафах мы храним одежду.",
+              "translationUk": "У цих шафах ми зберігаємо одяг."
+            },
+            {
+              "id": "L6.3.5",
+              "word": "parkas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Vasarą vaikštome ___ (parkas).",
+              "translation": "Летом мы гуляем в парках.",
+              "translationUk": "Улітку ми гуляємо в парках."
+            },
+            {
+              "id": "L6.3.6",
+              "word": "ranka",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Mama laiko telefoną ___ (ranka).",
+              "translation": "Мама держит телефон в руке.",
+              "translationUk": "Мама тримає телефон у руці."
+            }
+          ]
+        },
+        {
+          "id": "number",
+          "title": "Смена числа без смены падежа",
+          "minutes": 7,
+          "instruction": "Не переводите и не переписывайте предложение. Запишите только требуемую форму того же слова; падеж указан.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "L6.4.1",
+              "word": "kaimynas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "N.",
+              "prompt": "kaimynui → множественное число"
+            },
+            {
+              "id": "L6.4.2",
+              "word": "mokykla",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Vt.",
+              "prompt": "mokyklose → единственное число"
+            },
+            {
+              "id": "L6.4.3",
+              "word": "dovana",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Įn.",
+              "prompt": "dovanomis → единственное число"
+            },
+            {
+              "id": "L6.4.4",
+              "word": "lagaminas",
+              "number": "sg",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "G.",
+              "prompt": "lagaminus → единственное число"
+            },
+            {
+              "id": "L6.4.5",
+              "word": "vieta",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "K.",
+              "prompt": "vietos → множественное число"
+            },
+            {
+              "id": "L6.4.6",
+              "word": "draugas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "Š.",
+              "prompt": "drauge → множественное число"
+            }
+          ]
+        },
+        {
+          "id": "picture",
+          "title": "Комикс: находки и подарки",
+          "minutes": 8,
+          "instruction": "Посмотрите на указанный кадр. Из двух слов выберите подходящее по картинке, впишите его форму и выберите падеж. Ответ — одно слово.",
+          "kind": "picture",
+          "questions": [
+            {
+              "id": "L6.5.1",
+              "word": null,
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "A. Moteris ieško ___.",
+              "translation": "Женщина ищет …",
+              "translationUk": "Жінка шукає …",
+              "panel": "A",
+              "wordOptions": [
+                "knyga",
+                "mašina"
+              ]
+            },
+            {
+              "id": "L6.5.2",
+              "word": null,
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "B. Mama duoda ___ dukrai.",
+              "translation": "Мама даёт … дочери.",
+              "translationUk": "Мама дає … доньці.",
+              "panel": "B",
+              "wordOptions": [
+                "dovana",
+                "knyga"
+              ]
+            },
+            {
+              "id": "L6.5.3",
+              "word": null,
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "B. Mama duoda dovaną ___.",
+              "translation": "Мама даёт подарок …",
+              "translationUk": "Мама дає подарунок …",
+              "panel": "B",
+              "wordOptions": [
+                "dukra",
+                "mama"
+              ]
+            },
+            {
+              "id": "L6.5.4",
+              "word": null,
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "C. Du ___ keliauja kartu.",
+              "translation": "Два … путешествуют вместе.",
+              "translationUk": "Двоє … подорожують разом.",
+              "panel": "C",
+              "wordOptions": [
+                "draugas",
+                "vaikas"
+              ]
+            },
+            {
+              "id": "L6.5.5",
+              "word": null,
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "C. Draugai eina su ___.",
+              "translation": "Друзья идут с …",
+              "translationUk": "Друзі йдуть із …",
+              "panel": "C",
+              "wordOptions": [
+                "lagaminas",
+                "bilietas"
+              ]
+            },
+            {
+              "id": "L6.5.6",
+              "word": null,
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "D. Kadre nėra ___.",
+              "translation": "В кадре нет …",
+              "translationUk": "У кадрі немає …",
+              "panel": "D",
+              "wordOptions": [
+                "mašina",
+                "dėžė"
+              ]
+            }
+          ],
+          "image": {
+            "src": "assets/lesson-06-comic.png",
+            "alt": "Комикс из четырёх кадров: поиск книги, подарок дочери, друзья с чемоданами и кот в коробке.",
+            "description": "A: женщина ищет одну красную книгу; эта книга лежит под столом. B: мама передаёт один подарок одной дочери. C: два друга идут с двумя чемоданами. D: кот сидит внутри одной открытой коробки. Описания помогают определить предмет и количество; нужный падеж выберите по предложению."
+          }
+        },
+        {
+          "id": "repair",
+          "title": "Редактор: исправьте одно слово",
+          "minutes": 6,
+          "instruction": "В каждом предложении неверно написано целевое существительное. Впишите только исправленную форму и выберите её падеж. Переводы показывают правильный смысл.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "L6.6.1",
+              "word": "dovana",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Parduotuvėje ieškau dovanas.",
+              "translation": "В магазине я ищу подарки.",
+              "translationUk": "У магазині я шукаю подарунки."
+            },
+            {
+              "id": "L6.6.2",
+              "word": "mokykla",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Dirbu mokykloja.",
+              "translation": "Я работаю в школе.",
+              "translationUk": "Я працюю в школі."
+            },
+            {
+              "id": "L6.6.3",
+              "word": "kaimynas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Padedu kaiminams.",
+              "translation": "Я помогаю соседям.",
+              "translationUk": "Я допомагаю сусідам."
+            },
+            {
+              "id": "L6.6.4",
+              "word": "draugas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Kviečiu draugams į svečius.",
+              "translation": "Я приглашаю друзей в гости.",
+              "translationUk": "Я запрошую друзів у гості."
+            },
+            {
+              "id": "L6.6.5",
+              "word": "naujiena",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Džiaugiuosi naujienoms.",
+              "translation": "Я радуюсь новостям.",
+              "translationUk": "Я радію новинам."
+            },
+            {
+              "id": "L6.6.6",
+              "word": "mama",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Mamai, ateikite čia!",
+              "translation": "Мамы, подойдите сюда!",
+              "translationUk": "Мами, підійдіть сюди!"
+            }
+          ]
+        },
+        {
+          "id": "exit",
+          "title": "Финиш: новые примеры без памятки",
+          "minutes": 4,
+          "instruction": "Шесть коротких заданий. Впишите форму и выберите падеж. Не возвращайтесь к памятке до проверки.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "L6.7.1",
+              "word": "stalas",
+              "number": "sg",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Virtuvėje ieškau ___ (stalas).",
+              "translation": "На кухне я ищу стол.",
+              "translationUk": "На кухні я шукаю стіл."
+            },
+            {
+              "id": "L6.7.2",
+              "word": "knyga",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Į kuprinę dedu ___ (knyga).",
+              "translation": "Я кладу книги в рюкзак.",
+              "translationUk": "Я кладу книжки в рюкзак."
+            },
+            {
+              "id": "L6.7.3",
+              "word": "šeima",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Šioje ___ (šeima) auga du vaikai.",
+              "translation": "В этой семье растут двое детей.",
+              "translationUk": "У цій сім’ї ростуть двоє дітей."
+            },
+            {
+              "id": "L6.7.4",
+              "word": "kaimynas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Siunčiu ___ (kaimynas) žinutę.",
+              "translation": "Я отправляю соседям сообщение.",
+              "translationUk": "Я надсилаю сусідам повідомлення."
+            },
+            {
+              "id": "L6.7.5",
+              "word": "dovana",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Vaikas džiaugiasi ___ (dovana).",
+              "translation": "Ребёнок радуется подаркам.",
+              "translationUk": "Дитина радіє подарункам."
+            },
+            {
+              "id": "L6.7.6",
+              "word": "dukra",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "___ (dukra), palauk manęs!",
+              "translation": "Дочь, подожди меня!",
+              "translationUk": "Доню, зачекай на мене!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L07-E-SG",
+      "number": 7,
+      "version": 1,
+      "title": "-ė: единственное число полностью",
+      "subtitle": "Семь падежей · gėlė, katė, gatvė · комикс с кошкой",
+      "topic": "Полная регулярная модель -ė в единственном числе; повторение -as/-a обоих чисел",
+      "week": 2,
+      "minutes": 60,
+      "words": {
+        "namas": "дом",
+        "stalas": "стол",
+        "parkas": "парк",
+        "tiltas": "мост",
+        "miestas": "город",
+        "draugas": "друг",
+        "darbas": "работа",
+        "sodas": "сад",
+        "butas": "квартира",
+        "langas": "окно",
+        "studentas": "студент",
+        "telefonas": "телефон",
+        "planas": "план",
+        "bilietas": "билет",
+        "kaimynas": "сосед",
+        "autobusas": "автобус",
+        "lagaminas": "чемодан",
+        "bankas": "банк",
+        "teatras": "театр",
+        "vaikas": "ребёнок",
+        "knyga": "книга",
+        "mokykla": "школа",
+        "mašina": "машина",
+        "dovana": "подарок",
+        "diena": "день",
+        "šeima": "семья",
+        "mama": "мама",
+        "dukra": "дочь",
+        "ranka": "рука",
+        "lenta": "доска",
+        "vieta": "место",
+        "naujiena": "новость",
+        "spinta": "шкаф",
+        "kuprinė": "рюкзак",
+        "katė": "кошка",
+        "gėlė": "цветок",
+        "gatvė": "улица",
+        "dėžė": "коробка",
+        "parduotuvė": "магазин",
+        "kėdė": "стул",
+        "žvakė": "свеча"
+      },
+      "cases": [
+        {
+          "code": "V.",
+          "lt": "Vardininkas",
+          "ru": "Именительный",
+          "question": "kas?",
+          "ending": "-ė",
+          "example": "gėlė",
+          "uk": "Називний"
+        },
+        {
+          "code": "K.",
+          "lt": "Kilmininkas",
+          "ru": "Родительный",
+          "question": "ko?",
+          "ending": "-ės",
+          "example": "gėlės",
+          "uk": "Родовий"
+        },
+        {
+          "code": "N.",
+          "lt": "Naudininkas",
+          "ru": "Дательный",
+          "question": "kam?",
+          "ending": "-ei",
+          "example": "gėlei",
+          "uk": "Давальний"
+        },
+        {
+          "code": "G.",
+          "lt": "Galininkas",
+          "ru": "Винительный",
+          "question": "ką?",
+          "ending": "-ę",
+          "example": "gėlę",
+          "uk": "Знахідний"
+        },
+        {
+          "code": "Įn.",
+          "lt": "Įnagininkas",
+          "ru": "Творительный",
+          "question": "kuo?",
+          "ending": "-e",
+          "example": "gėle",
+          "uk": "Орудний"
+        },
+        {
+          "code": "Vt.",
+          "lt": "Vietininkas",
+          "ru": "Местный",
+          "question": "kur?",
+          "ending": "-ėje",
+          "example": "gėlėje",
+          "uk": "Місцевий"
+        },
+        {
+          "code": "Š.",
+          "lt": "Šauksmininkas",
+          "ru": "Звательный",
+          "question": "обращение",
+          "ending": "-e",
+          "example": "gėle",
+          "uk": "Кличний"
+        }
+      ],
+      "sections": [
+        {
+          "id": "retrieval",
+          "title": "Мостик от знакомых моделей",
+          "minutes": 10,
+          "instruction": "Без памятки. Повторяем -as и -a в обоих числах; модель -ė появится в следующем блоке.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "L7.1.1",
+              "word": "dovana",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Prieš šventę ieškau ___ (dovana).",
+              "translation": "Перед праздником я ищу подарки.",
+              "translationUk": "Перед святом я шукаю подарунки."
+            },
+            {
+              "id": "L7.1.2",
+              "word": "telefonas",
+              "number": "sg",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Ant stalo matau ___ (telefonas).",
+              "translation": "На столе я вижу телефон.",
+              "translationUk": "На столі я бачу телефон."
+            },
+            {
+              "id": "L7.1.3",
+              "word": "mašina",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Vt."
+            },
+            {
+              "id": "L7.1.4",
+              "word": "kaimynas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "N."
+            },
+            {
+              "id": "L7.1.5",
+              "word": "ranka",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Įn."
+            },
+            {
+              "id": "L7.1.6",
+              "word": "parkas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "Vt."
+            },
+            {
+              "id": "L7.1.7",
+              "word": "mama",
+              "number": "sg",
+              "model": "-a",
+              "chooseCase": false,
+              "case": "Š."
+            },
+            {
+              "id": "L7.1.8",
+              "word": "bilietas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": false,
+              "case": "G."
+            }
+          ]
+        },
+        {
+          "id": "reference",
+          "title": "Новая модель -ė: все семь падежей",
+          "minutes": 8,
+          "kind": "reference",
+          "instruction": "Сегодня только единственное число. Рассмотрите полную регулярную модель на примере gėlė (цветок). Ударение и исключения здесь не разбираем.",
+          "models": [
+            {
+              "label": "-ė · единственное число / vienaskaita",
+              "rows": [
+                {
+                  "code": "V.",
+                  "lt": "Vardininkas",
+                  "ru": "Именительный",
+                  "question": "kas?",
+                  "ending": "-ė",
+                  "example": "gėlė",
+                  "uk": "Називний"
+                },
+                {
+                  "code": "K.",
+                  "lt": "Kilmininkas",
+                  "ru": "Родительный",
+                  "question": "ko?",
+                  "ending": "-ės",
+                  "example": "gėlės",
+                  "uk": "Родовий"
+                },
+                {
+                  "code": "N.",
+                  "lt": "Naudininkas",
+                  "ru": "Дательный",
+                  "question": "kam?",
+                  "ending": "-ei",
+                  "example": "gėlei",
+                  "uk": "Давальний"
+                },
+                {
+                  "code": "G.",
+                  "lt": "Galininkas",
+                  "ru": "Винительный",
+                  "question": "ką?",
+                  "ending": "-ę",
+                  "example": "gėlę",
+                  "uk": "Знахідний"
+                },
+                {
+                  "code": "Įn.",
+                  "lt": "Įnagininkas",
+                  "ru": "Творительный",
+                  "question": "kuo?",
+                  "ending": "-e",
+                  "example": "gėle",
+                  "uk": "Орудний"
+                },
+                {
+                  "code": "Vt.",
+                  "lt": "Vietininkas",
+                  "ru": "Местный",
+                  "question": "kur?",
+                  "ending": "-ėje",
+                  "example": "gėlėje",
+                  "uk": "Місцевий"
+                },
+                {
+                  "code": "Š.",
+                  "lt": "Šauksmininkas",
+                  "ru": "Звательный",
+                  "question": "обращение",
+                  "ending": "-e",
+                  "example": "gėle",
+                  "uk": "Кличний"
+                }
+              ]
+            }
+          ],
+          "note": "V. gėlė, но Įn. gėle и Š. gėle: ė и e различаются. G. gėlę пишется с ę. N. gėlei имеет -ei. Vt. gėlėje имеет -ėje. В таблице можно образовать звательный для предмета как упражнение; в обращении к кошке естественно Kate!"
+        },
+        {
+          "id": "table",
+          "title": "Собираем полную модель",
+          "minutes": 12,
+          "kind": "table",
+          "instruction": "Просклоняйте gėlė и gatvė во всех семи падежах единственного числа. Следите за ė / e / ę. Звательный для цветка и улицы здесь служит тренировке формы.",
+          "words": [
+            "gėlė",
+            "gatvė"
+          ],
+          "caseCodes": [
+            "V.",
+            "K.",
+            "N.",
+            "G.",
+            "Įn.",
+            "Vt.",
+            "Š."
+          ],
+          "number": "sg",
+          "model": "-ė",
+          "prefix": "L7.2"
+        },
+        {
+          "id": "forms",
+          "title": "Другие слова по той же модели",
+          "minutes": 7,
+          "instruction": "Падеж уже указан. В первых четырёх заданиях выберите форму, в остальных впишите её. Во всех заданиях единственное число.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "L7.3.1",
+              "word": "katė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": false,
+              "case": "N.",
+              "options": [
+                "katė",
+                "katei",
+                "katės"
+              ]
+            },
+            {
+              "id": "L7.3.2",
+              "word": "dėžė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": false,
+              "case": "G.",
+              "options": [
+                "dėže",
+                "dėžė",
+                "dėžę"
+              ]
+            },
+            {
+              "id": "L7.3.3",
+              "word": "kėdė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": false,
+              "case": "Įn.",
+              "options": [
+                "kėdė",
+                "kėde",
+                "kėdę"
+              ]
+            },
+            {
+              "id": "L7.3.4",
+              "word": "parduotuvė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": false,
+              "case": "Vt.",
+              "options": [
+                "parduotuvėja",
+                "parduotuvėje",
+                "parduotuve"
+              ]
+            },
+            {
+              "id": "L7.3.5",
+              "word": "žvakė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": false,
+              "case": "K."
+            },
+            {
+              "id": "L7.3.6",
+              "word": "katė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": false,
+              "case": "Š."
+            },
+            {
+              "id": "L7.3.7",
+              "word": "dėžė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": false,
+              "case": "V."
+            }
+          ]
+        },
+        {
+          "id": "contexts",
+          "title": "Семь падежей в семи ситуациях",
+          "minutes": 9,
+          "instruction": "Впишите форму слова на -ė и выберите падеж. Здесь встречается каждый из семи падежей. Все целевые слова в единственном числе.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "L7.4.1",
+              "word": "katė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "Mano ___ (katė) miega ant sofos.",
+              "translation": "Моя кошка спит на диване.",
+              "translationUk": "Моя кішка спить на дивані."
+            },
+            {
+              "id": "L7.4.2",
+              "word": "žvakė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "Vakar ieškojau ___ (žvakė).",
+              "translation": "Вчера я искала свечу.",
+              "translationUk": "Учора я шукала свічку."
+            },
+            {
+              "id": "L7.4.3",
+              "word": "katė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "Duodu ___ (katė) maisto.",
+              "translation": "Я даю кошке еду.",
+              "translationUk": "Я даю кішці їжу."
+            },
+            {
+              "id": "L7.4.4",
+              "word": "gėlė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "Mama perka ___ (gėlė).",
+              "translation": "Мама покупает цветок.",
+              "translationUk": "Мама купує квітку."
+            },
+            {
+              "id": "L7.4.5",
+              "word": "gėlė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "Džiaugiuosi šia ___ (gėlė).",
+              "translation": "Я радуюсь этому цветку.",
+              "translationUk": "Я радію цій квітці."
+            },
+            {
+              "id": "L7.4.6",
+              "word": "parduotuvė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "Draugas dirba ___ (parduotuvė).",
+              "translation": "Друг работает в магазине.",
+              "translationUk": "Друг працює в магазині."
+            },
+            {
+              "id": "L7.4.7",
+              "word": "katė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "___ (katė), nelipk ant stalo!",
+              "translation": "Кошка, не залезай на стол!",
+              "translationUk": "Кішко, не залазь на стіл!"
+            }
+          ]
+        },
+        {
+          "id": "picture",
+          "title": "Комикс: день любопытной кошки",
+          "minutes": 8,
+          "instruction": "Найдите нужный предмет или персонажа в кадре. Выберите одно из двух слов, запишите его форму и укажите падеж. Все ответы — модель -ė, единственное число.",
+          "kind": "picture",
+          "questions": [
+            {
+              "id": "L7.5.1",
+              "word": null,
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "A. Moteris laiko ___.",
+              "translation": "Женщина держит …",
+              "translationUk": "Жінка тримає …",
+              "panel": "A",
+              "wordOptions": [
+                "gėlė",
+                "žvakė"
+              ]
+            },
+            {
+              "id": "L7.5.2",
+              "word": null,
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "B. Moteris duoda maisto ___.",
+              "translation": "Женщина даёт еду …",
+              "translationUk": "Жінка дає їжу …",
+              "panel": "B",
+              "wordOptions": [
+                "katė",
+                "gėlė"
+              ]
+            },
+            {
+              "id": "L7.5.3",
+              "word": null,
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "C. Katė sėdi ___.",
+              "translation": "Кошка сидит в …",
+              "translationUk": "Кішка сидить у …",
+              "panel": "C",
+              "wordOptions": [
+                "dėžė",
+                "parduotuvė"
+              ]
+            },
+            {
+              "id": "L7.5.4",
+              "word": null,
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "C. ___ sėdi dėžėje.",
+              "translation": "… сидит в коробке.",
+              "translationUk": "… сидить у коробці.",
+              "panel": "C",
+              "wordOptions": [
+                "katė",
+                "gėlė"
+              ]
+            },
+            {
+              "id": "L7.5.5",
+              "word": null,
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "D. Moteris yra prie ___.",
+              "translation": "Женщина находится возле …",
+              "translationUk": "Жінка перебуває біля …",
+              "panel": "D",
+              "wordOptions": [
+                "parduotuvė",
+                "dėžė"
+              ]
+            },
+            {
+              "id": "L7.5.6",
+              "word": null,
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "D. Moteris eina ___.",
+              "translation": "Женщина идёт по …",
+              "translationUk": "Жінка йде …",
+              "panel": "D",
+              "wordOptions": [
+                "gatvė",
+                "parduotuvė"
+              ]
+            }
+          ],
+          "image": {
+            "src": "assets/lesson-07-comic.png",
+            "alt": "Четыре кадра: женщина с цветком, кормление кошки, кошка в коробке и улица с магазином.",
+            "description": "A: женщина держит один цветок, рядом кошка. B: женщина даёт еду одной кошке. C: кошка сидит внутри одной открытой коробки. D: женщина идёт по улице; рядом один магазин. Во всех заданиях целевое слово в единственном числе."
+          }
+        },
+        {
+          "id": "exit",
+          "title": "Финиш: применяем без образца",
+          "minutes": 6,
+          "instruction": "Закройте памятку. Первые четыре задания — новая модель -ė, последние два — возвращение к -a и -as. Впишите форму и выберите падеж.",
+          "kind": "questions",
+          "questions": [
+            {
+              "id": "L7.6.1",
+              "word": "kuprinė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "Ryte ieškau ___ (kuprinė).",
+              "translation": "Утром я ищу рюкзак.",
+              "translationUk": "Уранці я шукаю рюкзак."
+            },
+            {
+              "id": "L7.6.2",
+              "word": "kėdė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "Prie lango statau ___ (kėdė).",
+              "translation": "Я ставлю стул возле окна.",
+              "translationUk": "Я ставлю стілець біля вікна."
+            },
+            {
+              "id": "L7.6.3",
+              "word": "gatvė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "Šioje ___ (gatvė) gyvena mano draugas.",
+              "translation": "На этой улице живёт мой друг.",
+              "translationUk": "На цій вулиці живе мій друг."
+            },
+            {
+              "id": "L7.6.4",
+              "word": "katė",
+              "number": "sg",
+              "model": "-ė",
+              "chooseCase": true,
+              "sentence": "___ (katė), kur tu?",
+              "translation": "Кошка, где ты?",
+              "translationUk": "Кішко, де ти?"
+            },
+            {
+              "id": "L7.6.5",
+              "word": "mokykla",
+              "number": "pl",
+              "model": "-a",
+              "chooseCase": true,
+              "sentence": "Siunčiame ___ (mokykla) knygas.",
+              "translation": "Мы отправляем школам книги.",
+              "translationUk": "Ми надсилаємо школам книжки."
+            },
+            {
+              "id": "L7.6.6",
+              "word": "kaimynas",
+              "number": "pl",
+              "model": "-as",
+              "chooseCase": true,
+              "sentence": "Pietauju su ___ (kaimynas).",
+              "translation": "Я обедаю с соседями.",
+              "translationUk": "Я обідаю із сусідами."
+            }
+          ]
+        }
+      ]
     }
   ]
 }

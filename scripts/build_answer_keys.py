@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 """Build reviewed, browser-side answer keys from local teaching materials."""
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 data=json.loads((ROOT/'docs/lessons.json').read_text());out=json.loads((ROOT/'docs/answer-keys.json').read_text()) if (ROOT/'docs/answer-keys.json').exists() else {'schemaVersion':1,'keys':{}}
-ends={'-as':{'sg':['as','o','ui','ą','u','e','e'],'pl':['ai','ų','ams','us','ais','uose','ai']},'-a':{'sg':['a','os','ai','ą','a','oje','a'],'pl':['os','ų','oms','as','omis','ose','os']}}
+ends={'-as':{'sg':['as','o','ui','ą','u','e','e'],'pl':['ai','ų','ams','us','ais','uose','ai']},'-a':{'sg':['a','os','ai','ą','a','oje','a'],'pl':['os','ų','oms','as','omis','ose','os']},'-ė':{'sg':['ė','ės','ei','ę','e','ėje','e']}}
 for lesson in data['lessons']:
  codes=[c['code'] for c in lesson['cases']];qs=[]
  for s in lesson['sections']:
@@ -25,7 +26,8 @@ for lesson in data['lessons']:
   assert q.get('case',e['case'])==e['case'], q['id']
   prompt=q.get('sentence') or q.get('prompt') or w
   c=next(c for c in lesson['cases'] if c['code']==e['case']);n='множественное' if e['number']=='pl' else 'единственное'
-  if not q['chooseCase']:rule=f"В задании указан {c['ru'].lower()} падеж, {n} число."
+  if e.get('rule'):rule=e['rule']
+  elif not q['chooseCase']:rule=f"В задании указан {c['ru'].lower()} падеж, {n} число."
   elif q.get('panel'):
    rule={'F6.1':'В кадре A дочь получает подарок: получает что? Винительный падеж.','F6.2':'В кадре A мама даёт подарок дочери: получатель выражается дательным падежом.','F6.3':'В кадре B кот сидит на книгах. Предлог ant требует родительного; книг несколько.','F6.4':'В кадре B книги лежат на столе. После ant нужен родительный падеж.','F6.5':'В кадре C друзья идут в парк. Направление: į + винительный.','F6.6':'В кадре C друзья путешествуют с чемоданами. Su требует творительного; чемоданов несколько.','F6.7':'В кадре D дочь сидит в машине. Место выражается местным падежом.','F6.8':'В кадре D дочь радуется билетам. Džiaugtis требует творительного; билетов несколько.'}[q['id']]
   else:
